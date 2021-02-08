@@ -18,12 +18,13 @@ namespace actualForm
         public MySqlConnection connect()
         {
             Console.WriteLine("TEST");
-            string str = @"Database=school_leenapp;Data Source=localhost; User Id=root;Password=test";
+            string str = new DatabaseCreds().databaseUri;
+            if (str == null || str.Trim() == "") return null;
             try
             {
                 MySqlConnection con = new MySqlConnection(str);
                 con.Open();
-                Console.WriteLine("MySQL DB Connected");
+                Console.WriteLine("Database Connected");
                 return con;
             } catch (Exception err)
             {

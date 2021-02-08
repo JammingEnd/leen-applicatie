@@ -25,7 +25,7 @@ namespace actualForm
             }
             MySqlDataReader reader = client.exec(
                 connection, 
-                "SELECT name FROM test"
+                "SELECT name FROM test WHERE name = \"thiimo\""
                 );
             if (reader == null)
             {
@@ -34,7 +34,6 @@ namespace actualForm
             }
             while (reader.Read())
             {
-                Console.WriteLine(">>>>>>>>>>> TEST");
                 Console.WriteLine(reader.GetString(0));
             }
         }
