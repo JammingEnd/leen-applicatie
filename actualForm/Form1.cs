@@ -30,25 +30,25 @@ namespace actualForm
         {
             client.exec(
                 connection,
-                "CREATE table IF NOT EXISTS device_info (deviceId INT NOT NULL, name VARCHAR(50) NOT NULL, type VARCHAR(25) NOT NULL, description TEXT NOT NULL, PRIMARY KEY(deviceId))"
+                "CREATE table IF NOT EXISTS device_info (deviceId INT NOT NULL AUTO_INCREMENT, name VARCHAR(50) NOT NULL, type VARCHAR(25) NOT NULL, description TEXT NOT NULL, PRIMARY KEY(deviceId))"
                 );
             connection.Close();
             connection.Open();
             client.exec(
                 connection,
-                "CREATE table IF NOT EXISTS user (userId INT NOT NULL, firstName VARCHAR(20) NOT NULL, lastName VARCHAR(20) NOT NULL, class VARCHAR(10), PRIMARY KEY(userId))"
+                "CREATE table IF NOT EXISTS user (userId INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(20) NOT NULL, lastName VARCHAR(20) NOT NULL, class VARCHAR(10), PRIMARY KEY(userId))"
                 );
             connection.Close();
             connection.Open();
             client.exec(
                 connection,
-                "CREATE table IF NOT EXISTS lendings (lendingId INT NOT NULL, deviceId INT NOT NULL, last_updated DATETIME NOT NULL, userId INT NOT NULL, PRIMARY KEY(lendingId), FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), FOREIGN KEY(userId) REFERENCES user(userId))"
+                "CREATE table IF NOT EXISTS lendings (lendingId INT NOT NULL AUTO_INCREMENT, deviceId INT NOT NULL, last_updated DATETIME NOT NULL, userId INT NOT NULL, PRIMARY KEY(lendingId), FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), FOREIGN KEY(userId) REFERENCES user(userId))"
                 );
             connection.Close();
             connection.Open();
             client.exec(
                 connection,
-                "CREATE table IF NOT EXISTS returns (ID INT NOT NULL, deviceId INT NOT NULL, userId INT NOT NULL, lendingId INT NOT NULL, description VARCHAR(200), PRIMARY KEY(ID), FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), FOREIGN KEY(userId) REFERENCES user(userId), FOREIGN KEY(lendingId) REFERENCES lendings(lendingId))"
+                "CREATE table IF NOT EXISTS returns (ID INT NOT NULL AUTO_INCREMENT, deviceId INT NOT NULL, userId INT NOT NULL, lendingId INT NOT NULL, description VARCHAR(200), PRIMARY KEY(ID), FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), FOREIGN KEY(userId) REFERENCES user(userId), FOREIGN KEY(lendingId) REFERENCES lendings(lendingId))"
                 );
             connection.Close();
         }
