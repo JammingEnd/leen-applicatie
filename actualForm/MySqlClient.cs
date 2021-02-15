@@ -17,14 +17,13 @@ namespace actualForm
         /// <returns></returns>
         public MySqlConnection connect()
         {
-            Console.WriteLine("TEST");
             string str = new DatabaseCreds().databaseUri;
             if (str == null || str.Trim() == "") return null;
             try
             {
                 MySqlConnection con = new MySqlConnection(str);
                 con.Open();
-                Console.WriteLine("Database Connected");
+                Console.WriteLine("Database Connected.");
                 return con;
             } catch (Exception err)
             {
