@@ -161,6 +161,7 @@ namespace actualForm
             this.addOmschrijvingTextbox.Name = "addOmschrijvingTextbox";
             this.addOmschrijvingTextbox.Size = new System.Drawing.Size(100, 129);
             this.addOmschrijvingTextbox.TabIndex = 6;
+            this.addOmschrijvingTextbox.Text = "omschrijving";
             // 
             // retourPicker
             // 
@@ -180,29 +181,33 @@ namespace actualForm
             // 
             this.addTypeApparaatTextbox.Location = new System.Drawing.Point(366, 80);
             this.addTypeApparaatTextbox.Name = "addTypeApparaatTextbox";
-            this.addTypeApparaatTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addTypeApparaatTextbox.Size = new System.Drawing.Size(128, 22);
             this.addTypeApparaatTextbox.TabIndex = 3;
+            this.addTypeApparaatTextbox.Text = "type";
             // 
             // addApparaatNaamTextbox
             // 
             this.addApparaatNaamTextbox.Location = new System.Drawing.Point(366, 17);
             this.addApparaatNaamTextbox.Name = "addApparaatNaamTextbox";
-            this.addApparaatNaamTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addApparaatNaamTextbox.Size = new System.Drawing.Size(128, 22);
             this.addApparaatNaamTextbox.TabIndex = 2;
+            this.addApparaatNaamTextbox.Text = "name";
             // 
             // addStudentnumTextbox
             // 
             this.addStudentnumTextbox.Location = new System.Drawing.Point(18, 80);
             this.addStudentnumTextbox.Name = "addStudentnumTextbox";
-            this.addStudentnumTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addStudentnumTextbox.Size = new System.Drawing.Size(156, 22);
             this.addStudentnumTextbox.TabIndex = 1;
+            this.addStudentnumTextbox.Text = "student number";
             // 
             // addNameTextbox
             // 
             this.addNameTextbox.Location = new System.Drawing.Point(18, 16);
             this.addNameTextbox.Name = "addNameTextbox";
-            this.addNameTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addNameTextbox.Size = new System.Drawing.Size(156, 22);
             this.addNameTextbox.TabIndex = 0;
+            this.addNameTextbox.Text = "name";
             // 
             // Form1
             // 
