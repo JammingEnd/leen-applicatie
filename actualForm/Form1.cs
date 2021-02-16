@@ -121,8 +121,19 @@ namespace actualForm
             DateTime uitleenDate = uitleenPicker.Value;
             DateTime retourDate = retourPicker.Value;
 
-            //apparaat toevoegen info
+          
        
+        }
+
+        private void addApparaatButton_Click(object sender, EventArgs e)
+        {
+            //apparaat toevoegen info
+            string deviceName = addApparaatNaamTextbox.Text;
+            string deviceType = addTypeApparaatTextbox.Text;
+            string description = addOmschrijvingTextbox.Text;
+
+
+            addDivce(deviceName, deviceType, description);
         }
     }
 }

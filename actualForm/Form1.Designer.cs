@@ -144,6 +144,7 @@ namespace actualForm
             this.addApparaatButton.TabIndex = 8;
             this.addApparaatButton.Text = "Toevoegen!";
             this.addApparaatButton.UseVisualStyleBackColor = true;
+            this.addApparaatButton.Click += new System.EventHandler(this.addApparaatButton_Click);
             // 
             // addUitleenButton
             // 
