@@ -36,7 +36,19 @@ namespace actualForm
             this.filterTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.addPanel = new System.Windows.Forms.Panel();
+            this.addApparaatButton = new System.Windows.Forms.Button();
+            this.addUitleenButton = new System.Windows.Forms.Button();
+            this.addOmschrijvingTextbox = new System.Windows.Forms.TextBox();
+            this.retourPicker = new System.Windows.Forms.DateTimePicker();
+            this.uitleenPicker = new System.Windows.Forms.DateTimePicker();
+            this.addTypeApparaatTextbox = new System.Windows.Forms.TextBox();
+            this.addApparaatNaamTextbox = new System.Windows.Forms.TextBox();
+            this.addStudentnumTextbox = new System.Windows.Forms.TextBox();
+            this.addNameTextbox = new System.Windows.Forms.TextBox();
             this.panel2.SuspendLayout();
+            this.dataPanel.SuspendLayout();
+            this.addPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // optionButton
@@ -100,11 +112,97 @@ namespace actualForm
             // dataPanel
             // 
             this.dataPanel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.dataPanel.Controls.Add(this.addPanel);
             this.dataPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.dataPanel.Location = new System.Drawing.Point(268, 24);
             this.dataPanel.Name = "dataPanel";
             this.dataPanel.Size = new System.Drawing.Size(520, 414);
             this.dataPanel.TabIndex = 7;
+            // 
+            // addPanel
+            // 
+            this.addPanel.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.addPanel.Controls.Add(this.addApparaatButton);
+            this.addPanel.Controls.Add(this.addUitleenButton);
+            this.addPanel.Controls.Add(this.addOmschrijvingTextbox);
+            this.addPanel.Controls.Add(this.retourPicker);
+            this.addPanel.Controls.Add(this.uitleenPicker);
+            this.addPanel.Controls.Add(this.addTypeApparaatTextbox);
+            this.addPanel.Controls.Add(this.addApparaatNaamTextbox);
+            this.addPanel.Controls.Add(this.addStudentnumTextbox);
+            this.addPanel.Controls.Add(this.addNameTextbox);
+            this.addPanel.Location = new System.Drawing.Point(3, 3);
+            this.addPanel.Name = "addPanel";
+            this.addPanel.Size = new System.Drawing.Size(517, 411);
+            this.addPanel.TabIndex = 1;
+            // 
+            // addApparaatButton
+            // 
+            this.addApparaatButton.Location = new System.Drawing.Point(294, 349);
+            this.addApparaatButton.Name = "addApparaatButton";
+            this.addApparaatButton.Size = new System.Drawing.Size(200, 44);
+            this.addApparaatButton.TabIndex = 8;
+            this.addApparaatButton.Text = "Toevoegen!";
+            this.addApparaatButton.UseVisualStyleBackColor = true;
+            // 
+            // addUitleenButton
+            // 
+            this.addUitleenButton.Location = new System.Drawing.Point(18, 349);
+            this.addUitleenButton.Name = "addUitleenButton";
+            this.addUitleenButton.Size = new System.Drawing.Size(200, 44);
+            this.addUitleenButton.TabIndex = 7;
+            this.addUitleenButton.Text = "Uitlenen!";
+            this.addUitleenButton.UseVisualStyleBackColor = true;
+            // 
+            // addOmschrijvingTextbox
+            // 
+            this.addOmschrijvingTextbox.Location = new System.Drawing.Point(366, 132);
+            this.addOmschrijvingTextbox.Multiline = true;
+            this.addOmschrijvingTextbox.Name = "addOmschrijvingTextbox";
+            this.addOmschrijvingTextbox.Size = new System.Drawing.Size(100, 129);
+            this.addOmschrijvingTextbox.TabIndex = 6;
+            // 
+            // retourPicker
+            // 
+            this.retourPicker.Location = new System.Drawing.Point(18, 183);
+            this.retourPicker.Name = "retourPicker";
+            this.retourPicker.Size = new System.Drawing.Size(200, 22);
+            this.retourPicker.TabIndex = 5;
+            // 
+            // uitleenPicker
+            // 
+            this.uitleenPicker.Location = new System.Drawing.Point(18, 122);
+            this.uitleenPicker.Name = "uitleenPicker";
+            this.uitleenPicker.Size = new System.Drawing.Size(200, 22);
+            this.uitleenPicker.TabIndex = 4;
+            // 
+            // addTypeApparaatTextbox
+            // 
+            this.addTypeApparaatTextbox.Location = new System.Drawing.Point(366, 80);
+            this.addTypeApparaatTextbox.Name = "addTypeApparaatTextbox";
+            this.addTypeApparaatTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addTypeApparaatTextbox.TabIndex = 3;
+            // 
+            // addApparaatNaamTextbox
+            // 
+            this.addApparaatNaamTextbox.Location = new System.Drawing.Point(366, 17);
+            this.addApparaatNaamTextbox.Name = "addApparaatNaamTextbox";
+            this.addApparaatNaamTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addApparaatNaamTextbox.TabIndex = 2;
+            // 
+            // addStudentnumTextbox
+            // 
+            this.addStudentnumTextbox.Location = new System.Drawing.Point(18, 80);
+            this.addStudentnumTextbox.Name = "addStudentnumTextbox";
+            this.addStudentnumTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addStudentnumTextbox.TabIndex = 1;
+            // 
+            // addNameTextbox
+            // 
+            this.addNameTextbox.Location = new System.Drawing.Point(18, 16);
+            this.addNameTextbox.Name = "addNameTextbox";
+            this.addNameTextbox.Size = new System.Drawing.Size(100, 22);
+            this.addNameTextbox.TabIndex = 0;
             // 
             // Form1
             // 
@@ -118,6 +216,9 @@ namespace actualForm
             this.Text = "Form1";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.dataPanel.ResumeLayout(false);
+            this.addPanel.ResumeLayout(false);
+            this.addPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -131,6 +232,16 @@ namespace actualForm
         private System.Windows.Forms.TextBox filterTextBox;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel dataPanel;
+        private System.Windows.Forms.Panel addPanel;
+        private System.Windows.Forms.Button addApparaatButton;
+        private System.Windows.Forms.Button addUitleenButton;
+        private System.Windows.Forms.TextBox addOmschrijvingTextbox;
+        private System.Windows.Forms.DateTimePicker retourPicker;
+        private System.Windows.Forms.DateTimePicker uitleenPicker;
+        private System.Windows.Forms.TextBox addTypeApparaatTextbox;
+        private System.Windows.Forms.TextBox addApparaatNaamTextbox;
+        private System.Windows.Forms.TextBox addStudentnumTextbox;
+        private System.Windows.Forms.TextBox addNameTextbox;
     }
 }
 
