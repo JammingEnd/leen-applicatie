@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace actualForm
 {
+   
     public partial class Form1 : Form
     {
+       
         public Form1()
         {
             InitializeComponent();
@@ -24,6 +26,7 @@ namespace actualForm
                 return;
             }
             init(connection, client);
+            addPanel.Visible = false;
         }
 
         static void init(MySqlConnection connection, MySqlClient client)
@@ -68,10 +71,58 @@ namespace actualForm
                 $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
                 );
         }
+        
+       
+        
+           
 
-        private void button2_Click(object sender, EventArgs e)
+           
+        
+        private void button2_Click(object sender, EventArgs e) //add button
+        {
+           if(addPanel.Visible == false)
+            {
+                addPanel.Visible = true;
+            }
+            else
+            {
+                addPanel.Visible = false;
+            }
+
+  
+        }
+
+        private void addNameTextbox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void addStudentnumTextbox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void addStudentnumTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);  //only number textbox. doesnt prevent copy/paste text
+        }
+
+        private void addUitleenButton_Click(object sender, EventArgs e)
+        {
+            //send uitleenData to quary 
+            // uitleen info
+            string leenName = addNameTextbox.Text;
+            float studentNumber = Convert.ToInt32(addStudentnumTextbox.Text);
+            DateTime uitleenDate = uitleenPicker.Value;
+            DateTime retourDate = retourPicker.Value;
+
+            //apparaat toevoegen info
+       
         }
     }
 }

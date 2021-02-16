@@ -153,6 +153,7 @@ namespace actualForm
             this.addUitleenButton.TabIndex = 7;
             this.addUitleenButton.Text = "Uitlenen!";
             this.addUitleenButton.UseVisualStyleBackColor = true;
+            this.addUitleenButton.Click += new System.EventHandler(this.addUitleenButton_Click);
             // 
             // addOmschrijvingTextbox
             // 
@@ -200,6 +201,8 @@ namespace actualForm
             this.addStudentnumTextbox.Size = new System.Drawing.Size(156, 22);
             this.addStudentnumTextbox.TabIndex = 1;
             this.addStudentnumTextbox.Text = "student number";
+            this.addStudentnumTextbox.TextChanged += new System.EventHandler(this.addStudentnumTextbox_TextChanged);
+            this.addStudentnumTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.addStudentnumTextbox_KeyPress);
             // 
             // addNameTextbox
             // 
@@ -208,6 +211,7 @@ namespace actualForm
             this.addNameTextbox.Size = new System.Drawing.Size(156, 22);
             this.addNameTextbox.TabIndex = 0;
             this.addNameTextbox.Text = "name";
+            this.addNameTextbox.TextChanged += new System.EventHandler(this.addNameTextbox_TextChanged);
             // 
             // Form1
             // 
