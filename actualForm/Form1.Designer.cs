@@ -158,7 +158,7 @@ namespace actualForm
             // 
             // addOmschrijvingTextbox
             // 
-            this.addOmschrijvingTextbox.Location = new System.Drawing.Point(366, 132);
+            this.addOmschrijvingTextbox.Location = new System.Drawing.Point(366, 124);
             this.addOmschrijvingTextbox.Multiline = true;
             this.addOmschrijvingTextbox.Name = "addOmschrijvingTextbox";
             this.addOmschrijvingTextbox.Size = new System.Drawing.Size(100, 129);

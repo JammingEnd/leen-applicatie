@@ -71,13 +71,24 @@ namespace actualForm
                 $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
                 );
         }
-        
-       
-        
-           
 
-           
-        
+       // volgens mij is er een verschil tussen schetsen en database locaties
+      /*  static void lendDevice(string name, string type, string description)
+        {
+            MySqlClient client = new MySqlClient();
+            MySqlConnection connection = client.connect();
+            client.exec(
+                connection,
+                $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
+                );
+        }
+      */
+
+
+
+
+
+
         private void button2_Click(object sender, EventArgs e) //add button
         {
            if(addPanel.Visible == false)
@@ -131,7 +142,6 @@ namespace actualForm
             string deviceName = addApparaatNaamTextbox.Text;
             string deviceType = addTypeApparaatTextbox.Text;
             string description = addOmschrijvingTextbox.Text;
-
 
             addDivce(deviceName, deviceType, description);
         }
