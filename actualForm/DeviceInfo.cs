@@ -65,6 +65,8 @@ namespace actualForm
             connection.Close();
         }
 
+
+        //FIXME: needs to return data.
         public static void readAll()
         {
             client.exec(
