@@ -27,7 +27,6 @@ namespace actualForm
             }
             init(connection, client);
             addPanel.Visible = false;
-            DeviceInfo.add("test1", "test2", "test3");
         }
 
         static void init(MySqlConnection connection, MySqlClient client)
@@ -45,8 +44,15 @@ namespace actualForm
             connection.Close();
             connection.Open();
             client.exec( /// user info
+                /**
+                 * userId INT NOT NULL AUTO_INCREMENT
+                 *  firstName VARCHAR(20) NOT NULL
+                 * lastName VARCHAR(20) NOT NULL
+                 * studentId INT (6) NOT NULL
+                 * class VARCHAR(10)
+                 */
                 connection,
-                "CREATE table IF NOT EXISTS user (userId INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(20) NOT NULL, lastName VARCHAR(20) NOT NULL, class VARCHAR(10), PRIMARY KEY(userId))"
+                "CREATE table IF NOT EXISTS user (userId INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(20) NOT NULL, lastName VARCHAR(20) NOT NULL, studentId INT(6) NOT NULL, class VARCHAR(10), PRIMARY KEY(userId))"
                 );
             connection.Close();
             connection.Open();
