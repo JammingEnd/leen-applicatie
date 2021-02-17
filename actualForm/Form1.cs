@@ -27,6 +27,7 @@ namespace actualForm
             }
             init(connection, client);
             addPanel.Visible = false;
+            DeviceInfo.add("test1", "test2", "test3");
         }
 
         static void init(MySqlConnection connection, MySqlClient client)
@@ -61,17 +62,7 @@ namespace actualForm
                 );
             connection.Close();
         }
-
-        static void addDivce(string name, string type, string description)
-        {
-            MySqlClient client = new MySqlClient();
-            MySqlConnection connection = client.connect();
-            client.exec(
-                connection,
-                $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
-                );
-        }
-
+        
        // volgens mij is er een verschil tussen schetsen en database locaties
       /*  static void lendDevice(string name, string type, string description)
         {
@@ -143,7 +134,7 @@ namespace actualForm
             string deviceType = addTypeApparaatTextbox.Text;
             string description = addOmschrijvingTextbox.Text;
 
-            addDivce(deviceName, deviceType, description);
+            DeviceInfo.add(deviceName, deviceType, description);
         }
     }
 }
