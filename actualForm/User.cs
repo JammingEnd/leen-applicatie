@@ -76,21 +76,21 @@ namespace actualForm
                 );
             connection.Close();
         }
-
-        public static void setClass(int id, string Class)
-        {
-            client.exec(
-                connection,
-                $"UPDATE user SET class = \"{Class}\" WHERE userId = \"{id}\";"
-                );
-            connection.Close();
-        }
-
+        
         public static void setStudentId(int id, int studentId)
         {
             client.exec(
                 connection,
                 $"UPDATE user SET studentId = \"{studentId}\" WHERE userId = \"{id}\";"
+                );
+            connection.Close();
+        }
+        
+        public static void setClass(int id, string Class)
+        {
+            client.exec(
+                connection,
+                $"UPDATE user SET class = \"{Class}\" WHERE userId = \"{id}\";"
                 );
             connection.Close();
         }
