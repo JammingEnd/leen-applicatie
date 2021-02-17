@@ -27,44 +27,66 @@ namespace actualForm
             }
             init(connection, client);
             addPanel.Visible = false;
+            // DeviceInfo.add("name", "type", "desc");
+            // User.add("firstname", "lastname", 123, "class");
+            // Lendings.add(1, 1);
         }
 
         static void init(MySqlConnection connection, MySqlClient client)
         {
             client.exec( /// device info
-                /**
-                 * deviceId INT
-                 * name VARCHAR(50)
-                 * type VARCHAR(25)
-                 * description TEXT
-                 */
                 connection,
-                "CREATE table IF NOT EXISTS device_info (deviceId INT NOT NULL AUTO_INCREMENT, name VARCHAR(50) NOT NULL, type VARCHAR(25) NOT NULL, description TEXT NOT NULL, PRIMARY KEY(deviceId))"
+                "CREATE table IF NOT EXISTS device_info (" +
+                "deviceId INT NOT NULL AUTO_INCREMENT, " +
+                "name VARCHAR(50) NOT NULL, " +
+                "type VARCHAR(25) NOT NULL, " +
+                "description TEXT NOT NULL, " +
+                "PRIMARY KEY(deviceId)" +
+                ")"
                 );
             connection.Close();
             connection.Open();
             client.exec( /// user info
-                /**
-                 * userId INT NOT NULL AUTO_INCREMENT
-                 *  firstName VARCHAR(20) NOT NULL
-                 * lastName VARCHAR(20) NOT NULL
-                 * studentId INT (6) NOT NULL
-                 * class VARCHAR(10)
-                 */
                 connection,
-                "CREATE table IF NOT EXISTS user (userId INT NOT NULL AUTO_INCREMENT, firstName VARCHAR(20) NOT NULL, lastName VARCHAR(20) NOT NULL, studentId INT(6) NOT NULL, class VARCHAR(10), PRIMARY KEY(userId))"
+                "CREATE table IF NOT EXISTS user (" +
+                "userId INT NOT NULL AUTO_INCREMENT, " +
+                "firstName VARCHAR(20) NOT NULL, " +
+                "lastName VARCHAR(20) NOT NULL, " +
+                "studentId INT(6) NOT NULL, " +
+                "class VARCHAR(10), " +
+                "PRIMARY KEY(userId)" +
+                ")"
                 );
             connection.Close();
             connection.Open();
             client.exec( /// lendings
                 connection,
-                "CREATE table IF NOT EXISTS lendings (lendingId INT NOT NULL AUTO_INCREMENT, deviceId INT NOT NULL, last_updated DATETIME NOT NULL, userId INT NOT NULL, PRIMARY KEY(lendingId), FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), FOREIGN KEY(userId) REFERENCES user(userId))"
+                "CREATE table IF NOT EXISTS lendings (" +
+                "lendingId INT NOT NULL AUTO_INCREMENT, " +
+                "deviceId INT NOT NULL, " +
+                "last_updated DATETIME NOT NULL, " +
+                "userId INT NOT NULL, " +
+                "isActive boolean NOT NULL, " +
+                "PRIMARY KEY(lendingId), " +
+                "FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), " +
+                "FOREIGN KEY(userId) REFERENCES user(userId)" +
+                ")"
                 );
             connection.Close();
             connection.Open();
             client.exec( /// returns
                 connection,
-                "CREATE table IF NOT EXISTS returns (ID INT NOT NULL AUTO_INCREMENT, deviceId INT NOT NULL, userId INT NOT NULL, lendingId INT NOT NULL, description VARCHAR(200), PRIMARY KEY(ID), FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), FOREIGN KEY(userId) REFERENCES user(userId), FOREIGN KEY(lendingId) REFERENCES lendings(lendingId))"
+                "CREATE table IF NOT EXISTS returns (" +
+                "ID INT NOT NULL AUTO_INCREMENT, " +
+                "deviceId INT NOT NULL, " +
+                "userId INT NOT NULL, " +
+                "lendingId INT NOT NULL, " +
+                "description VARCHAR(200), " +
+                "PRIMARY KEY(ID), " +
+                "FOREIGN KEY(deviceId) REFERENCES device_info(deviceId), " +
+                "FOREIGN KEY(userId) REFERENCES user(userId), " +
+                "FOREIGN KEY(lendingId) REFERENCES lendings(lendingId)" +
+                ")"
                 );
             connection.Close();
         }

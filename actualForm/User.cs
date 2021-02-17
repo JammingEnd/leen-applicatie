@@ -13,7 +13,6 @@ namespace actualForm
         private static MySqlConnection connection = client.connect();
         /// <summary>
         /// add
-        /// create
         /// delete
         /// updateAll
         /// setFirstName
