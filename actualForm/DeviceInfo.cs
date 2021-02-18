@@ -67,9 +67,9 @@ namespace actualForm
 
 
         //FIXME: needs to return data.
-        public static void readAll()
+        public static MySqlDataReader readAll()
         {
-            client.exec(
+            return client.exec(
                 connection,
                 "SELECT * FROM device_info;"
                 );

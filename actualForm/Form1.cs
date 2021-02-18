@@ -14,7 +14,10 @@ namespace actualForm
    
     public partial class Form1 : Form
     {
-       
+        private static int fistPointNumber1 = 16;
+        private static int fistPointNumber2 = 11;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -25,14 +28,15 @@ namespace actualForm
                 Console.WriteLine("Couldn't connect to the database.");
                 return;
             }
-            init(connection, client);
-            addPanel.Visible = false;
+            //preInit(connection, client);
             // DeviceInfo.add("name", "type", "desc");
             // User.add("firstname", "lastname", 123, "class");
             // Lendings.add(1, 1);
+            //init(connection, client);
+            //makeTextBox();
         }
 
-        static void init(MySqlConnection connection, MySqlClient client)
+        static void preInit(MySqlConnection connection, MySqlClient client)
         {
             client.exec( /// device info
                 connection,
@@ -91,78 +95,51 @@ namespace actualForm
             connection.Close();
         }
         
-       // volgens mij is er een verschil tussen schetsen en database locaties
-      /*  static void lendDevice(string name, string type, string description)
+        static void init(MySqlConnection connection, MySqlClient client)
         {
-            MySqlClient client = new MySqlClient();
-            MySqlConnection connection = client.connect();
-            client.exec(
-                connection,
-                $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
-                );
-        }
-      */
-
-
-
-
-
-
-        private void button2_Click(object sender, EventArgs e) //add button
-        {
-           if(addPanel.Visible == false)
+            MySqlDataReader reader = DeviceInfo.readAll();
+            if (reader == null)
             {
-                addPanel.Visible = true;
+                Console.WriteLine("reader is null.");
+                return;
             }
-            else
-            {
-                addPanel.Visible = false;
-            }
-
-  
+        
+        
         }
 
-        private void addNameTextbox_TextChanged(object sender, EventArgs e)
+        static void makeTextBox()
         {
-            
+          
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            string[] row = { "test1", "test2", "test3" };
+            var listViewItems = new ListViewItem(row);
+            listView1.Items.Add(listViewItems);
         }
 
-        private void addStudentnumTextbox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
+        // volgens mij is er een verschil tussen schetsen en database locaties
+        /*  static void lendDevice(string name, string type, string description)
+          {
+              MySqlClient client = new MySqlClient();
+              MySqlConnection connection = client.connect();
+              client.exec(
+                  connection,
+                  $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
+                  );
+          }
+        */
 
-        private void addStudentnumTextbox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);  //only number textbox. doesnt prevent copy/paste text
-        }
 
-        private void addUitleenButton_Click(object sender, EventArgs e)
-        {
-            //send uitleenData to quary 
-            // uitleen info
-            string leenName = addNameTextbox.Text;
-            float studentNumber = Convert.ToInt32(addStudentnumTextbox.Text);
-            DateTime uitleenDate = uitleenPicker.Value;
-            DateTime retourDate = retourPicker.Value;
 
-          //lendingID(leenName, studentNumber, uitleenDate, retourDate);
-       
-        }
 
-        private void addApparaatButton_Click(object sender, EventArgs e)
-        {
-            //apparaat toevoegen info
-            string deviceName = addApparaatNaamTextbox.Text;
-            string deviceType = addTypeApparaatTextbox.Text;
-            string description = addOmschrijvingTextbox.Text;
 
-            DeviceInfo.add(deviceName, deviceType, description);
-        }
+
+
+
+
+
+
     }
 }
