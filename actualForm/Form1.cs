@@ -117,18 +117,33 @@ namespace actualForm
         }
 
         private void button1_Click(object sender, EventArgs e)
-        { 
-         
-            var showDevices = GetDevices();
+        {
+            MySqlDataReader reader = DeviceInfo.readAll();
+            if (reader == null)
+            {
+                Console.WriteLine("reader is null.");
+                return;
+            }
+
+            while (reader.Read())
+            {
+
+                var row = new string[] { reader.GetString(1), reader.GetString(2), "status", null };
+                var lvi = new ListViewItem(row);
+
+                //lvi.Tag = Devices;
+
+                listViewDevices.Items.Add(lvi);
+            }
+            /*var showDevices = GetDevices();
             foreach(var Devices in showDevices)
             {
-                var row = new string[] { Devices.name, Devices.type, Devices.status, Devices.remark };
-                var lvi = new ListViewItem(row);
+                
 
                 lvi.Tag = Devices;
 
                 listViewDevices.Items.Add(lvi);
-            }
+            }*/
         }
 
         private List<Devices> GetDevices()
