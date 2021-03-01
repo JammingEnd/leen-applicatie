@@ -74,5 +74,10 @@ namespace actualForm
                 );
             connection.Close();
         }
+
+        public static Boolean isActive(int deviceId)
+        {
+
+        }
     }
 }

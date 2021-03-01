@@ -127,7 +127,7 @@ namespace actualForm
 
             while (reader.Read())
             {
-
+                Boolean isActive = Lendings.isActive(reader.GetInt16(0));
                 var row = new string[] { reader.GetString(1), reader.GetString(2), "status", null };
                 var lvi = new ListViewItem(row);
 
