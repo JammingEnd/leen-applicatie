@@ -11,11 +11,10 @@ using System.Windows.Forms;
 
 namespace actualForm
 {
-   
+
     public partial class Form1 : Form
     {
-        private static int fistPointNumber1 = 16;
-        private static int fistPointNumber2 = 11;
+        
 
 
         public Form1()
@@ -94,7 +93,7 @@ namespace actualForm
                 );
             connection.Close();
         }
-        
+
         static void init(MySqlConnection connection, MySqlClient client)
         {
             MySqlDataReader reader = DeviceInfo.readAll();
@@ -103,21 +102,51 @@ namespace actualForm
                 Console.WriteLine("reader is null.");
                 return;
             }
-        
-        
-        }
+            while (reader.Read())
+            {​​
+                string lvName = reader.GetString(1);
+                string lvType = reader.GetString(2);
+                return;
+            }
+           // MySqlDataReader readerLend = 
+            }
 
         static void makeTextBox()
         {
-          
+
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            string[] row = { "test1", "test2", "test3" };
-            var listViewItems = new ListViewItem(row);
-            listView1.Items.Add(listViewItems);
+        { 
+         
+            var showDevices = GetDevices();
+            foreach(var Devices in showDevices)
+            {
+                var row = new string[] { Devices.name, Devices.type, Devices.status, Devices.remark };
+                var lvi = new ListViewItem(row);
+
+                lvi.Tag = Devices;
+
+                listViewDevices.Items.Add(lvi);
+            }
         }
+
+        private List<Devices> GetDevices()
+        {
+            var list = new List<Devices>();
+            list.Add(new Devices() { name = LvName.ToString(), type = LvType.ToString(), status = "uitgeleent", remark = null }); ; ;
+
+            return list;
+
+
+        }
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
         // volgens mij is er een verschil tussen schetsen en database locaties
         /*  static void lendDevice(string name, string type, string description)

@@ -29,13 +29,18 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.devicesPanel = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.Devices = new System.Windows.Forms.Panel();
+            this.listViewDevices = new System.Windows.Forms.ListView();
+            this.LvName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LvType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LvStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Remark = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.sideBarPanel.SuspendLayout();
-            this.devicesPanel.SuspendLayout();
+            this.Devices.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -43,60 +48,97 @@ namespace actualForm
             this.sideBarPanel.Controls.Add(this.textBox1);
             this.sideBarPanel.Controls.Add(this.button1);
             this.sideBarPanel.Location = new System.Drawing.Point(0, -1);
+            this.sideBarPanel.Margin = new System.Windows.Forms.Padding(4);
             this.sideBarPanel.Name = "sideBarPanel";
-            this.sideBarPanel.Size = new System.Drawing.Size(163, 366);
+            this.sideBarPanel.Size = new System.Drawing.Size(217, 450);
             this.sideBarPanel.TabIndex = 0;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 14);
+            this.textBox1.Location = new System.Drawing.Point(17, 17);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(125, 50);
+            this.textBox1.Size = new System.Drawing.Size(165, 61);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Search";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(13, 80);
+            this.button1.Location = new System.Drawing.Point(17, 98);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 50);
+            this.button1.Size = new System.Drawing.Size(168, 62);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // devicesPanel
+            // Devices
             // 
-            this.devicesPanel.Controls.Add(this.listView1);
-            this.devicesPanel.Location = new System.Drawing.Point(184, 46);
-            this.devicesPanel.Name = "devicesPanel";
-            this.devicesPanel.Size = new System.Drawing.Size(391, 319);
-            this.devicesPanel.TabIndex = 1;
+            this.Devices.Controls.Add(this.listViewDevices);
+            this.Devices.Location = new System.Drawing.Point(266, 44);
+            this.Devices.Margin = new System.Windows.Forms.Padding(4);
+            this.Devices.Name = "Devices";
+            this.Devices.Size = new System.Drawing.Size(521, 393);
+            this.Devices.TabIndex = 1;
             // 
-            // listView1
+            // listViewDevices
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(391, 319);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewDevices.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.LvName,
+            this.LvType,
+            this.LvStatus,
+            this.Remark});
+            this.listViewDevices.GridLines = true;
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Name";
+            this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            listViewGroup1});
+            this.listViewDevices.HideSelection = false;
+            this.listViewDevices.Location = new System.Drawing.Point(0, 0);
+            this.listViewDevices.Margin = new System.Windows.Forms.Padding(4);
+            this.listViewDevices.Name = "listViewDevices";
+            this.listViewDevices.Size = new System.Drawing.Size(520, 392);
+            this.listViewDevices.TabIndex = 0;
+            this.listViewDevices.UseCompatibleStateImageBehavior = false;
+            this.listViewDevices.View = System.Windows.Forms.View.Details;
+            // 
+            // LvName
+            // 
+            this.LvName.Text = "Name";
+            this.LvName.Width = 120;
+            // 
+            // LvType
+            // 
+            this.LvType.Text = "Type";
+            this.LvType.Width = 80;
+            // 
+            // LvStatus
+            // 
+            this.LvStatus.Text = "Status";
+            this.LvStatus.Width = 80;
+            // 
+            // Remark
+            // 
+            this.Remark.Text = "Remark";
+            this.Remark.Width = 200;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.devicesPanel);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Devices);
             this.Controls.Add(this.sideBarPanel);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Uitleen applicatie";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.sideBarPanel.ResumeLayout(false);
             this.sideBarPanel.PerformLayout();
-            this.devicesPanel.ResumeLayout(false);
+            this.Devices.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -106,8 +148,12 @@ namespace actualForm
         private System.Windows.Forms.Panel sideBarPanel;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel devicesPanel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.Panel Devices;
+        private System.Windows.Forms.ListView listViewDevices;
+        private System.Windows.Forms.ColumnHeader LvName;
+        private System.Windows.Forms.ColumnHeader LvType;
+        private System.Windows.Forms.ColumnHeader LvStatus;
+        private System.Windows.Forms.ColumnHeader Remark;
     }
 }
 

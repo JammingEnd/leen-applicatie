@@ -92,8 +92,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseCreds.cs" />
+    <Compile Include="databaseCreds.cs" />
     <Compile Include="DeviceInfo.cs" />
+    <Compile Include="Devices.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
