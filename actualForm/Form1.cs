@@ -102,15 +102,15 @@ namespace actualForm
                 Console.WriteLine("reader is null.");
                 return;
             }
+
             while (reader.Read())
-            {​​
+            {
                 string lvName = reader.GetString(1);
                 string lvType = reader.GetString(2);
-                return;
-            }
-           // MySqlDataReader readerLend = 
-            }
 
+
+            }
+        }
         static void makeTextBox()
         {
 
