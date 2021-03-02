@@ -60,7 +60,7 @@ namespace actualForm
             this.ReturnScreenEditDeviceButton = new System.Windows.Forms.Button();
             this.ReturnScreenCancelButton = new System.Windows.Forms.Button();
             this.ReturnScreenReturnButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.LendingScreenPanel = new System.Windows.Forms.Panel();
             this.LendingScreenFirstName = new System.Windows.Forms.TextBox();
             this.LendingScreenLastName = new System.Windows.Forms.TextBox();
             this.LendingScreenStudentNum = new System.Windows.Forms.TextBox();
@@ -72,7 +72,7 @@ namespace actualForm
             this.AddScreenPanel.SuspendLayout();
             this.EditScreenDevice.SuspendLayout();
             this.ReturnScreenPanel.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.LendingScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -229,7 +229,7 @@ namespace actualForm
             // 
             // EditScreenDevice
             // 
-            this.EditScreenDevice.Controls.Add(this.panel1);
+            this.EditScreenDevice.Controls.Add(this.LendingScreenPanel);
             this.EditScreenDevice.Controls.Add(this.ReturnScreenPanel);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceSaveButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDeleteButton);
@@ -367,19 +367,19 @@ namespace actualForm
             this.ReturnScreenReturnButton.Visible = false;
             this.ReturnScreenReturnButton.Click += new System.EventHandler(this.ReturnScreenReturnButton_Click);
             // 
-            // panel1
+            // LendingScreenPanel
             // 
-            this.panel1.Controls.Add(this.LendingScreenSaveButton);
-            this.panel1.Controls.Add(this.LendingScreenCancelButton);
-            this.panel1.Controls.Add(this.LendingScreenClass);
-            this.panel1.Controls.Add(this.LendingScreenStudentNum);
-            this.panel1.Controls.Add(this.LendingScreenLastName);
-            this.panel1.Controls.Add(this.LendingScreenFirstName);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 374);
-            this.panel1.TabIndex = 6;
-            this.panel1.Visible = false;
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenSaveButton);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenCancelButton);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenClass);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenStudentNum);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenLastName);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenFirstName);
+            this.LendingScreenPanel.Location = new System.Drawing.Point(0, 0);
+            this.LendingScreenPanel.Name = "LendingScreenPanel";
+            this.LendingScreenPanel.Size = new System.Drawing.Size(447, 374);
+            this.LendingScreenPanel.TabIndex = 6;
+            this.LendingScreenPanel.Visible = false;
             // 
             // LendingScreenFirstName
             // 
@@ -458,8 +458,8 @@ namespace actualForm
             this.EditScreenDevice.PerformLayout();
             this.ReturnScreenPanel.ResumeLayout(false);
             this.ReturnScreenPanel.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.LendingScreenPanel.ResumeLayout(false);
+            this.LendingScreenPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -496,7 +496,7 @@ namespace actualForm
         private System.Windows.Forms.Button ReturnScreenCancelButton;
         private System.Windows.Forms.Button ReturnScreenEditDeviceButton;
         private System.Windows.Forms.Button ReturnScreenEditLendingButton;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel LendingScreenPanel;
         private System.Windows.Forms.Button LendingScreenSaveButton;
         private System.Windows.Forms.Button LendingScreenCancelButton;
         private System.Windows.Forms.TextBox LendingScreenClass;
