@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -132,10 +132,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Name";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup3});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -388,6 +388,8 @@ namespace actualForm
             this.LendingScreenFirstName.Name = "LendingScreenFirstName";
             this.LendingScreenFirstName.Size = new System.Drawing.Size(131, 31);
             this.LendingScreenFirstName.TabIndex = 0;
+            this.LendingScreenFirstName.Text = "Voornaam";
+            this.LendingScreenFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LendingScreenLastName
             // 
@@ -396,14 +398,19 @@ namespace actualForm
             this.LendingScreenLastName.Name = "LendingScreenLastName";
             this.LendingScreenLastName.Size = new System.Drawing.Size(131, 31);
             this.LendingScreenLastName.TabIndex = 1;
+            this.LendingScreenLastName.Text = "Achternaam";
+            this.LendingScreenLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LendingScreenStudentNum
             // 
-            this.LendingScreenStudentNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.LendingScreenStudentNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
             this.LendingScreenStudentNum.Location = new System.Drawing.Point(43, 186);
+            this.LendingScreenStudentNum.Multiline = true;
             this.LendingScreenStudentNum.Name = "LendingScreenStudentNum";
             this.LendingScreenStudentNum.Size = new System.Drawing.Size(131, 31);
             this.LendingScreenStudentNum.TabIndex = 2;
+            this.LendingScreenStudentNum.Text = "Studenten Nummer";
+            this.LendingScreenStudentNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LendingScreenClass
             // 
@@ -412,6 +419,8 @@ namespace actualForm
             this.LendingScreenClass.Name = "LendingScreenClass";
             this.LendingScreenClass.Size = new System.Drawing.Size(131, 31);
             this.LendingScreenClass.TabIndex = 3;
+            this.LendingScreenClass.Text = "Klas";
+            this.LendingScreenClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // LendingScreenCancelButton
             // 
