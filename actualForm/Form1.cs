@@ -94,44 +94,6 @@ namespace actualForm
             connection.Close();
         }
 
-        static void init(MySqlConnection connection, MySqlClient client)
-        {
-            MySqlDataReader reader = DeviceInfo.readAll();
-            if (reader == null)
-            {
-                Console.WriteLine("reader is null.");
-                return;
-            }
-
-            while (reader.Read())
-            {
-   
-                string lvName = reader.GetString(1);
-                string lvType = reader.GetString(2);
-
-
-            }
-
-        }
-        static void makeTextBox()
-        {
-
-        }
-
-        /*   private static void CheckForBool();
-           {
-           bool checker = Lendings.isActive(4);
-               if(checker == true)
-               {
-                   string lvStatus = "uitgeleent";
-                   return;
-               }
-               else
-               {
-                   string lvStatus = "uitleenbaar";
-                   return;
-               }
-        */
         private void AddDevice(object sender, EventArgs e)
         {
             AddScreenPanel.Visible = true;
