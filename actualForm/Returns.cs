@@ -11,7 +11,10 @@ namespace actualForm
     {
         private static MySqlClient client = new MySqlClient();
         private static MySqlConnection connection = client.connect();
-
+        private static MySqlConnection GetConnection()
+        {
+            return client.connect();
+        }
         /// <summary>
         /// add
         /// delete
@@ -39,7 +42,7 @@ namespace actualForm
         public static void add(int deviceId, int userId, int lendingId, string description = null)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"INSERT INTO returns " +
                 $"(deviceId, userId, lendingId{(description != null ? ", description" : "")}) " +
                 $"VALUES " +
@@ -51,7 +54,7 @@ namespace actualForm
         public static void delete(int id)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"DELETE FROM returns WHERE ID = \"{id}\";"
                 );
             connection.Close();
@@ -60,7 +63,7 @@ namespace actualForm
         public static void updateAll(int id, int deviceId, int userId, int lendingId, string description = null)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE returns SET " +
                 $"deviceId = \"{deviceId}\", " +
                 $"userId = \"{userId}\", " +
@@ -74,7 +77,7 @@ namespace actualForm
         public static void updateDeviceId(int id, int deviceId)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE returns SET deviceId = \"{deviceId}\" WHERE ID = \"{id}\";"
                 );
             connection.Close();
@@ -83,7 +86,7 @@ namespace actualForm
         public static void updateUserId(int id, int userId)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE returns SET userId = \"{userId}\" WHERE ID = \"{id}\";"
                 );
             connection.Close();
@@ -92,7 +95,7 @@ namespace actualForm
         public static void updateLendingId(int id, int lendingId)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE returns SET lendingId = \"{lendingId}\" WHERE ID = \"{id}\";"
                 );
             connection.Close();
@@ -101,7 +104,7 @@ namespace actualForm
         public static void updateDescription(int id, string description)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE returns SET description = \"{description}\" WHERE ID = \"{id}\";"
                 );
             connection.Close();

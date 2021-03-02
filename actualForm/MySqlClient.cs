@@ -44,6 +44,7 @@ namespace actualForm
         {
             try
             {
+                Console.WriteLine(str);
                 MySqlCommand cmd = new MySqlCommand(str, con);
                 return cmd.ExecuteReader();
             } catch (Exception err)

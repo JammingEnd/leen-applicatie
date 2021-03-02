@@ -11,6 +11,10 @@ namespace actualForm
     {
         private static MySqlClient client = new MySqlClient();
         private static MySqlConnection connection = client.connect();
+        private static MySqlConnection GetConnection()
+        {
+            return client.connect();
+        }
         /// <summary>
         /// add
         /// delete
@@ -34,7 +38,7 @@ namespace actualForm
         public static void add(string firstName, string lastName, int studentId, string Class)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"INSERT INTO user (firstName, lastName, studentId, class) VALUES (\"{firstName}\", \"{lastName}\", \"{studentId}\", \"{Class}\");"
                 );
             connection.Close();
@@ -43,7 +47,7 @@ namespace actualForm
         public static void delete(int id)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"DELETE FROM user WHERE userId = \"{id}\";"
                 );
             connection.Close();
@@ -52,7 +56,7 @@ namespace actualForm
         public static void updateAll(int id, string firstName, string lastName, int studentId, string Class)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE user SET firstname = \"{firstName}\", lastName = \"{lastName}\", studentId = \"{studentId}\", class = \"{Class}\" WHERE userId = \"{id}\";"
                 );
             connection.Close();
@@ -61,7 +65,7 @@ namespace actualForm
         public static void setFirstName(int id, string firstName)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE user SET firstname = \"{firstName}\" WHERE userId = \"{id}\";"
                 );
             connection.Close();
@@ -70,7 +74,7 @@ namespace actualForm
         public static void setLastName(int id, string lastName)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE user SET lastName = \"{lastName}\" WHERE userId = \"{id}\";"
                 );
             connection.Close();
@@ -79,7 +83,7 @@ namespace actualForm
         public static void setStudentId(int id, int studentId)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE user SET studentId = \"{studentId}\" WHERE userId = \"{id}\";"
                 );
             connection.Close();
@@ -88,7 +92,7 @@ namespace actualForm
         public static void setClass(int id, string Class)
         {
             client.exec(
-                connection,
+                GetConnection(),
                 $"UPDATE user SET class = \"{Class}\" WHERE userId = \"{id}\";"
                 );
             connection.Close();

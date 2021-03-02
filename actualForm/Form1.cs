@@ -135,38 +135,6 @@ namespace actualForm
         private void AddDevice(object sender, EventArgs e)
         {
             AddScreenPanel.Visible = true;
-            /*
-            MySqlDataReader reader = DeviceInfo.readAll();
-            if (reader == null)
-            {
-                Console.WriteLine("reader is null.");
-                return;
-            }
-            while (reader.Read())
-            {
-                Boolean checker = Lendings.isActive(reader.GetInt16(0));
-                //Boolean isActive = Lendings.isActive(reader.GetInt16(0));
-
-
-                //lvi.Tag = Devices;
-                string LvStatus = string.Empty;
-                if (checker == true)
-                {
-                     LvStatus = "uitgeleent";
-
-                }
-                else
-                {
-                     LvStatus = "uitleenbaar";
-
-                }
-
-                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null, reader.GetString(0) }; // adding the item to the list. 
-                var lvi = new ListViewItem(row);
-                listViewDevices.Items.Add(lvi);
-            }
-            reader.Close();
-            */
         }
 
         private void loadDevices()
@@ -197,7 +165,7 @@ namespace actualForm
 
                 }
 
-                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null, reader.GetString(0) }; // adding the item to the list. 
+                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus, null, reader.GetString(0) }; // adding the item to the list. 
                 var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
             }
@@ -241,12 +209,15 @@ namespace actualForm
 
         private void EditScreenDeviceDeleteButton_Click(object sender, EventArgs e)
         {
-            // DELETE A DEVICE
+            Console.WriteLine(sender.ToString());
         }
 
         private void EditScreenDeviceSaveButton_Click(object sender, EventArgs e)
         {
             // SAVE AN EDITED DEVICE.
+            string itemIdString = listViewDevices.SelectedItems[0].SubItems[4].Text;
+            int itemId = int.Parse(itemIdString);
+            Console.WriteLine(itemId);
         }
 
         private void AddScreenSave_Click(object sender, EventArgs e)
