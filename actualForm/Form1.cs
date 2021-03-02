@@ -160,7 +160,7 @@ namespace actualForm
 
                 }
 
-                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null };
+                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null, reader.GetString(0) }; // adding the item to the list. 
                 var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
             }
@@ -180,7 +180,12 @@ namespace actualForm
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            /*
+            DeleteButton.Visible = false;
+            string DeviceIdCall = listViewDevices.SelectedItems[1].SubItems[4].Text.ToString();
+            Console.WriteLine(DeviceIdCall);
+            Console.WriteLine("if you got a number youre correct!");
+            */
         }
 
 
@@ -199,12 +204,15 @@ namespace actualForm
 
 
 
+        private void listViewDevices_ItemActivate(object sender, EventArgs e)
+        {
+            DeleteButton.Visible = true;
+            string DeviceIdCall = listViewDevices.SelectedItems[0].SubItems[4].Text.ToString();
+            Console.WriteLine(DeviceIdCall);
+            Console.WriteLine("if you got a number youre correct!");
+        }
 
 
 
-
-
-
-
-    }
+}
 }
