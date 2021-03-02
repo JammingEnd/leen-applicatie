@@ -141,11 +141,10 @@ namespace actualForm
                 Console.WriteLine("reader is null.");
                 return;
             }
-
             while (reader.Read())
             {
                 Boolean checker = Lendings.isActive(reader.GetInt16(0));
-                Boolean isActive = Lendings.isActive(reader.GetInt16(0));
+                //Boolean isActive = Lendings.isActive(reader.GetInt16(0));
 
 
                 //lvi.Tag = Devices;
@@ -165,6 +164,7 @@ namespace actualForm
                 var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
             }
+            reader.Close();
 
             /*var showDevices = GetDevices();
             foreach(var Devices in showDevices)
