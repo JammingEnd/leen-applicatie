@@ -11,6 +11,10 @@ namespace actualForm
     {
         private static MySqlClient client = new MySqlClient();
         private static MySqlConnection connection = client.connect();
+        private static MySqlConnection GetConnection()
+        {
+            return client.connect();
+        }
         public static void add(string name, string type, string description)
         {
             client.exec(
@@ -65,17 +69,33 @@ namespace actualForm
             connection.Close();
         }
 
+        class DeviceInfoData
+        {
+            public int deviceId { get; set; } 
+            public string name { get; set; } 
+            public string type { get; set; } 
+            public string description { get; set; }
+        }
 
-        //FIXME: needs to return data.
+
         public static MySqlDataReader readAll()
         {
-            MySqlDataReader data = client.exec(
-                connection,
+            return client.exec(
+                GetConnection(),
                 "SELECT * FROM device_info;"
                 );
-            connection.Close();
-            return data;
-            
+            /*object[][] data = new object[][] { };
+            while (reader.Read())
+            {
+                int deviceId = reader.GetInt16(0);
+                string name = reader.GetString(1);
+                string type = reader.GetString(2);
+                string description = reader.GetString(3);
+                object[] d = new object[] { deviceId, name, type, description };
+                data.Append(d);
+            }
+            connection.Close();*/
+            //return data;
         }
     }
 }

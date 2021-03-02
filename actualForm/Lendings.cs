@@ -77,21 +77,29 @@ namespace actualForm
 
         public static MySqlDataReader getOneLending(int deviceId)
         {
-            MySqlDataReader data = client.exec(
+            return client.exec(
                 connection,
                 $"SELECT * FROM lendings WHERE deviceId = \"{deviceId}\""
                 );
-            connection.Close();
-            return data;
         }
 
-        public static Boolean isActive(int deviceId)
+        public static bool isActive(int deviceId)
         {
+            Console.WriteLine();
             MySqlDataReader reader = getOneLending(deviceId);
+            if (reader == null)
+            {
+                return false;
+            }
             while(reader.Read())
             {
-                return reader.GetBoolean(4);   
+                if (reader.GetBoolean(4))
+                {
+                    connection.Close();
+                    return true;
+                }
             }
+            connection.Close();
             return false;
         }
     }
