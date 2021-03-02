@@ -152,16 +152,9 @@ namespace actualForm
         private void listViewDevices_ItemActivate(object sender, EventArgs e)
         {
             DeleteButton.Visible = true;
-            string DeviceIdCall = listViewDevices.SelectedItems[0].SubItems[4].Text.ToString();
-            Console.WriteLine(DeviceIdCall);
-            Console.WriteLine("if you got a number youre correct!");
-        }
-            private void Form1_Load(object sender, EventArgs e)
-        {
-            DeleteButton.Visible = false;
-            
 
         }
+
       
 
        
@@ -171,7 +164,14 @@ namespace actualForm
         {
 
         }
-  
+  private void Form1_Load(object sender, EventArgs e)
+        {
+            DeleteButton.Visible = false;
+            string DeviceIdCall = listViewDevices.SelectedItems[0].SubItems[4].Text.ToString();
+            Console.WriteLine(DeviceIdCall);
+            Console.WriteLine("if you got a number youre correct!");
+
+        }
         static void makeTextBox()
         {
 
