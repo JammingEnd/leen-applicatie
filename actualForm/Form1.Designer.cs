@@ -143,7 +143,7 @@ namespace actualForm
             this.listViewDevices.TabIndex = 0;
             this.listViewDevices.UseCompatibleStateImageBehavior = false;
             this.listViewDevices.View = System.Windows.Forms.View.Details;
-            this.listViewDevices.Click += new System.EventHandler(this.listViewDevices_ItemActivate);
+            this.listViewDevices.Click += new System.EventHandler(this.listViewDevices_CLICK);
             // 
             // LvName
             // 

@@ -143,7 +143,7 @@ namespace actualForm
             loadDevices();
         }
 
-        private void listViewDevices_ItemActivate(object sender, EventArgs e)
+        private void listViewDevices_CLICK(object sender, EventArgs e)
         {
             //TODO
             /*
