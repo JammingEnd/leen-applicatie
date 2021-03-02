@@ -43,7 +43,7 @@ namespace actualForm
                 "deviceId INT NOT NULL AUTO_INCREMENT, " +
                 "name VARCHAR(50) NOT NULL, " +
                 "type VARCHAR(25) NOT NULL, " +
-                "description TEXT NOT NULL, " +
+                "description TEXT, " +
                 "PRIMARY KEY(deviceId)" +
                 ")"
                 );
@@ -132,9 +132,10 @@ namespace actualForm
                    return;
                }
         */
-        private void button1_Click(object sender, EventArgs e)
+        private void AddDevice(object sender, EventArgs e)
         {
-
+            AddScreenPanel.Visible = true;
+            /*
             MySqlDataReader reader = DeviceInfo.readAll();
             if (reader == null)
             {
@@ -165,54 +166,114 @@ namespace actualForm
                 listViewDevices.Items.Add(lvi);
             }
             reader.Close();
-
-            /*var showDevices = GetDevices();
-            foreach(var Devices in showDevices)
-            {
-
-
-                lvi.Tag = Devices;
-
-                listViewDevices.Items.Add(lvi);
-            }*/
-        }
-
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            /*
-            DeleteButton.Visible = false;
-            string DeviceIdCall = listViewDevices.SelectedItems[1].SubItems[4].Text.ToString();
-            Console.WriteLine(DeviceIdCall);
-            Console.WriteLine("if you got a number youre correct!");
             */
         }
 
+        private void loadDevices()
+        {
+            listViewDevices.Items.Clear();
+            MySqlDataReader reader = DeviceInfo.readAll();
+            if (reader == null)
+            {
+                Console.WriteLine("reader is null.");
+                return;
+            }
+            while (reader.Read())
+            {
+                Boolean checker = Lendings.isActive(reader.GetInt16(0));
+                //Boolean isActive = Lendings.isActive(reader.GetInt16(0));
 
-        // volgens mij is er een verschil tussen schetsen en database locaties
-        /*  static void lendDevice(string name, string type, string description)
-          {
-              MySqlClient client = new MySqlClient();
-              MySqlConnection connection = client.connect();
-              client.exec(
-                  connection,
-                  $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
-                  );
-          }
-        */
 
+                //lvi.Tag = Devices;
+                string LvStatus = string.Empty;
+                if (checker == true)
+                {
+                    LvStatus = "uitgeleent";
 
+                }
+                else
+                {
+                    LvStatus = "uitleenbaar";
 
+                }
+
+                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null, reader.GetString(0) }; // adding the item to the list. 
+                var lvi = new ListViewItem(row);
+                listViewDevices.Items.Add(lvi);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            loadDevices();
+        }
 
         private void listViewDevices_ItemActivate(object sender, EventArgs e)
         {
+            //TODO
+            /*
             DeleteButton.Visible = true;
             string DeviceIdCall = listViewDevices.SelectedItems[0].SubItems[4].Text.ToString();
             Console.WriteLine(DeviceIdCall);
             Console.WriteLine("if you got a number youre correct!");
+            */
+            EditScreenDevice.Visible = true;
         }
 
+        private void AddScreenCancel_Click(object sender, EventArgs e)
+        {
+            //TODO
+            AddScreenName.Text = null;
+            AddScreenDescription.Text = null;
+            AddScreenType.Text = null;
+            AddScreenPanel.Visible = false;
+            loadDevices();
+        }
 
+        private void EditScreenDeviceCancelButton_Click(object sender, EventArgs e)
+        {
+            EditScreenDeviceDescription.Text = null;
+            EditScreenDeviceName.Text = null;
+            EditScreenDeviceType.Text = null;
+            EditScreenDevice.Visible = false;
+            loadDevices();
+        }
 
-}
+        private void EditScreenDeviceDeleteButton_Click(object sender, EventArgs e)
+        {
+            // DELETE A DEVICE
+        }
+
+        private void EditScreenDeviceSaveButton_Click(object sender, EventArgs e)
+        {
+            // SAVE AN EDITED DEVICE.
+        }
+
+        private void AddScreenSave_Click(object sender, EventArgs e)
+        {
+            // SAVE A NEW DEVICE.
+            // handle all data and insert into db.
+            string name = AddScreenName.Text;
+            string type = AddScreenType.Text;
+            string desc = AddScreenDescription.Text;
+            if (name.Length < 1)
+            {
+                // handle this. Requires a name. 
+            } else if (name.Length > 50)
+            {
+                // handle this. A name can not be longer than 50 chars.
+            }
+
+            if (type.Length < 1)
+            {
+                // handle this. Requires a Type. 
+            } else if (type.Length > 25)
+            {
+                // handle this. A Type can not be longer than 25 chars.
+            }
+
+            DeviceInfo.add(name, type, desc);
+            AddScreenCancel_Click(sender, e);
+        }
+    }
 }

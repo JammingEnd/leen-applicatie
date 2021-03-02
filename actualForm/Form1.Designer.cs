@@ -33,7 +33,7 @@ namespace actualForm
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.addDeviceButton = new System.Windows.Forms.Button();
             this.Devices = new System.Windows.Forms.Panel();
             this.listViewDevices = new System.Windows.Forms.ListView();
             this.LvName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -41,15 +41,30 @@ namespace actualForm
             this.LvStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Remark = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.AddScreenPanel = new System.Windows.Forms.Panel();
+            this.AddScreenSave = new System.Windows.Forms.Button();
+            this.AddScreenCancel = new System.Windows.Forms.Button();
+            this.AddScreenDescription = new System.Windows.Forms.RichTextBox();
+            this.AddScreenType = new System.Windows.Forms.TextBox();
+            this.AddScreenName = new System.Windows.Forms.TextBox();
+            this.EditScreenDevice = new System.Windows.Forms.Panel();
+            this.EditScreenDeviceSaveButton = new System.Windows.Forms.Button();
+            this.EditScreenDeviceDeleteButton = new System.Windows.Forms.Button();
+            this.EditScreenDeviceCancelButton = new System.Windows.Forms.Button();
+            this.EditScreenDeviceDescription = new System.Windows.Forms.RichTextBox();
+            this.EditScreenDeviceType = new System.Windows.Forms.TextBox();
+            this.EditScreenDeviceName = new System.Windows.Forms.TextBox();
             this.sideBarPanel.SuspendLayout();
             this.Devices.SuspendLayout();
+            this.AddScreenPanel.SuspendLayout();
+            this.EditScreenDevice.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
             // 
             this.sideBarPanel.Controls.Add(this.DeleteButton);
             this.sideBarPanel.Controls.Add(this.textBox1);
-            this.sideBarPanel.Controls.Add(this.button1);
+            this.sideBarPanel.Controls.Add(this.addDeviceButton);
             this.sideBarPanel.Location = new System.Drawing.Point(0, -1);
             this.sideBarPanel.Name = "sideBarPanel";
             this.sideBarPanel.Size = new System.Drawing.Size(163, 366);
@@ -58,7 +73,7 @@ namespace actualForm
             // DeleteButton
             // 
             this.DeleteButton.Location = new System.Drawing.Point(14, 310);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(125, 36);
             this.DeleteButton.TabIndex = 2;
@@ -75,15 +90,15 @@ namespace actualForm
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Search";
             // 
-            // button1
+            // addDeviceButton
             // 
-            this.button1.Location = new System.Drawing.Point(13, 80);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 50);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addDeviceButton.Location = new System.Drawing.Point(13, 80);
+            this.addDeviceButton.Name = "addDeviceButton";
+            this.addDeviceButton.Size = new System.Drawing.Size(126, 50);
+            this.addDeviceButton.TabIndex = 0;
+            this.addDeviceButton.Text = "button1";
+            this.addDeviceButton.UseVisualStyleBackColor = true;
+            this.addDeviceButton.Click += new System.EventHandler(this.AddDevice);
             // 
             // Devices
             // 
@@ -113,7 +128,7 @@ namespace actualForm
             this.listViewDevices.TabIndex = 0;
             this.listViewDevices.UseCompatibleStateImageBehavior = false;
             this.listViewDevices.View = System.Windows.Forms.View.Details;
-            this.listViewDevices.ItemActivate += new System.EventHandler(this.listViewDevices_ItemActivate);
+            this.listViewDevices.Click += new System.EventHandler(this.listViewDevices_ItemActivate);
             // 
             // LvName
             // 
@@ -139,21 +154,153 @@ namespace actualForm
             // 
             this.ColumId.Width = 10;
             // 
+            // AddScreenPanel
+            // 
+            this.AddScreenPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.AddScreenPanel.Controls.Add(this.AddScreenSave);
+            this.AddScreenPanel.Controls.Add(this.AddScreenCancel);
+            this.AddScreenPanel.Controls.Add(this.AddScreenDescription);
+            this.AddScreenPanel.Controls.Add(this.AddScreenType);
+            this.AddScreenPanel.Controls.Add(this.AddScreenName);
+            this.AddScreenPanel.Location = new System.Drawing.Point(160, -1);
+            this.AddScreenPanel.Name = "AddScreenPanel";
+            this.AddScreenPanel.Size = new System.Drawing.Size(447, 377);
+            this.AddScreenPanel.TabIndex = 2;
+            this.AddScreenPanel.Visible = false;
+            // 
+            // AddScreenSave
+            // 
+            this.AddScreenSave.Location = new System.Drawing.Point(255, 306);
+            this.AddScreenSave.Name = "AddScreenSave";
+            this.AddScreenSave.Size = new System.Drawing.Size(154, 40);
+            this.AddScreenSave.TabIndex = 4;
+            this.AddScreenSave.Text = "Save";
+            this.AddScreenSave.UseVisualStyleBackColor = true;
+            this.AddScreenSave.Click += new System.EventHandler(this.AddScreenSave_Click);
+            // 
+            // AddScreenCancel
+            // 
+            this.AddScreenCancel.Location = new System.Drawing.Point(38, 310);
+            this.AddScreenCancel.Name = "AddScreenCancel";
+            this.AddScreenCancel.Size = new System.Drawing.Size(154, 40);
+            this.AddScreenCancel.TabIndex = 3;
+            this.AddScreenCancel.Text = "Cancel";
+            this.AddScreenCancel.UseVisualStyleBackColor = true;
+            this.AddScreenCancel.Click += new System.EventHandler(this.AddScreenCancel_Click);
+            // 
+            // AddScreenDescription
+            // 
+            this.AddScreenDescription.Location = new System.Drawing.Point(38, 130);
+            this.AddScreenDescription.Name = "AddScreenDescription";
+            this.AddScreenDescription.Size = new System.Drawing.Size(371, 115);
+            this.AddScreenDescription.TabIndex = 2;
+            this.AddScreenDescription.Text = "";
+            // 
+            // AddScreenType
+            // 
+            this.AddScreenType.Location = new System.Drawing.Point(255, 37);
+            this.AddScreenType.Multiline = true;
+            this.AddScreenType.Name = "AddScreenType";
+            this.AddScreenType.Size = new System.Drawing.Size(154, 54);
+            this.AddScreenType.TabIndex = 1;
+            // 
+            // AddScreenName
+            // 
+            this.AddScreenName.Location = new System.Drawing.Point(38, 37);
+            this.AddScreenName.Multiline = true;
+            this.AddScreenName.Name = "AddScreenName";
+            this.AddScreenName.Size = new System.Drawing.Size(154, 54);
+            this.AddScreenName.TabIndex = 0;
+            // 
+            // EditScreenDevice
+            // 
+            this.EditScreenDevice.Controls.Add(this.EditScreenDeviceSaveButton);
+            this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDeleteButton);
+            this.EditScreenDevice.Controls.Add(this.EditScreenDeviceCancelButton);
+            this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDescription);
+            this.EditScreenDevice.Controls.Add(this.EditScreenDeviceType);
+            this.EditScreenDevice.Controls.Add(this.EditScreenDeviceName);
+            this.EditScreenDevice.Location = new System.Drawing.Point(160, -1);
+            this.EditScreenDevice.Name = "EditScreenDevice";
+            this.EditScreenDevice.Size = new System.Drawing.Size(446, 374);
+            this.EditScreenDevice.TabIndex = 2;
+            this.EditScreenDevice.Visible = false;
+            // 
+            // EditScreenDeviceSaveButton
+            // 
+            this.EditScreenDeviceSaveButton.Location = new System.Drawing.Point(279, 305);
+            this.EditScreenDeviceSaveButton.Name = "EditScreenDeviceSaveButton";
+            this.EditScreenDeviceSaveButton.Size = new System.Drawing.Size(113, 40);
+            this.EditScreenDeviceSaveButton.TabIndex = 5;
+            this.EditScreenDeviceSaveButton.Text = "Save";
+            this.EditScreenDeviceSaveButton.UseVisualStyleBackColor = true;
+            this.EditScreenDeviceSaveButton.Click += new System.EventHandler(this.EditScreenDeviceSaveButton_Click);
+            // 
+            // EditScreenDeviceDeleteButton
+            // 
+            this.EditScreenDeviceDeleteButton.Location = new System.Drawing.Point(160, 305);
+            this.EditScreenDeviceDeleteButton.Name = "EditScreenDeviceDeleteButton";
+            this.EditScreenDeviceDeleteButton.Size = new System.Drawing.Size(113, 40);
+            this.EditScreenDeviceDeleteButton.TabIndex = 4;
+            this.EditScreenDeviceDeleteButton.Text = "Delete";
+            this.EditScreenDeviceDeleteButton.UseVisualStyleBackColor = true;
+            this.EditScreenDeviceDeleteButton.Click += new System.EventHandler(this.EditScreenDeviceDeleteButton_Click);
+            // 
+            // EditScreenDeviceCancelButton
+            // 
+            this.EditScreenDeviceCancelButton.Location = new System.Drawing.Point(42, 305);
+            this.EditScreenDeviceCancelButton.Name = "EditScreenDeviceCancelButton";
+            this.EditScreenDeviceCancelButton.Size = new System.Drawing.Size(113, 40);
+            this.EditScreenDeviceCancelButton.TabIndex = 3;
+            this.EditScreenDeviceCancelButton.Text = "Cancel";
+            this.EditScreenDeviceCancelButton.UseVisualStyleBackColor = true;
+            this.EditScreenDeviceCancelButton.Click += new System.EventHandler(this.EditScreenDeviceCancelButton_Click);
+            // 
+            // EditScreenDeviceDescription
+            // 
+            this.EditScreenDeviceDescription.Location = new System.Drawing.Point(38, 96);
+            this.EditScreenDeviceDescription.Name = "EditScreenDeviceDescription";
+            this.EditScreenDeviceDescription.Size = new System.Drawing.Size(354, 129);
+            this.EditScreenDeviceDescription.TabIndex = 2;
+            this.EditScreenDeviceDescription.Text = "";
+            // 
+            // EditScreenDeviceType
+            // 
+            this.EditScreenDeviceType.Location = new System.Drawing.Point(242, 40);
+            this.EditScreenDeviceType.Multiline = true;
+            this.EditScreenDeviceType.Name = "EditScreenDeviceType";
+            this.EditScreenDeviceType.Size = new System.Drawing.Size(150, 41);
+            this.EditScreenDeviceType.TabIndex = 1;
+            // 
+            // EditScreenDeviceName
+            // 
+            this.EditScreenDeviceName.Location = new System.Drawing.Point(42, 40);
+            this.EditScreenDeviceName.Multiline = true;
+            this.EditScreenDeviceName.Name = "EditScreenDeviceName";
+            this.EditScreenDeviceName.Size = new System.Drawing.Size(150, 41);
+            this.EditScreenDeviceName.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(606, 373);
+            this.Controls.Add(this.EditScreenDevice);
+            this.Controls.Add(this.AddScreenPanel);
             this.Controls.Add(this.Devices);
             this.Controls.Add(this.sideBarPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Uitleen applicatie";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.sideBarPanel.ResumeLayout(false);
             this.sideBarPanel.PerformLayout();
             this.Devices.ResumeLayout(false);
+            this.AddScreenPanel.ResumeLayout(false);
+            this.AddScreenPanel.PerformLayout();
+            this.EditScreenDevice.ResumeLayout(false);
+            this.EditScreenDevice.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -162,7 +309,7 @@ namespace actualForm
 
         private System.Windows.Forms.Panel sideBarPanel;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button addDeviceButton;
         private System.Windows.Forms.Panel Devices;
         private System.Windows.Forms.ListView listViewDevices;
         private System.Windows.Forms.ColumnHeader LvName;
@@ -171,6 +318,19 @@ namespace actualForm
         private System.Windows.Forms.ColumnHeader Remark;
         private System.Windows.Forms.ColumnHeader ColumId;
         private System.Windows.Forms.Button DeleteButton;
+        private System.Windows.Forms.Panel AddScreenPanel;
+        private System.Windows.Forms.Button AddScreenSave;
+        private System.Windows.Forms.Button AddScreenCancel;
+        private System.Windows.Forms.RichTextBox AddScreenDescription;
+        private System.Windows.Forms.TextBox AddScreenType;
+        private System.Windows.Forms.TextBox AddScreenName;
+        private System.Windows.Forms.Panel EditScreenDevice;
+        private System.Windows.Forms.Button EditScreenDeviceSaveButton;
+        private System.Windows.Forms.Button EditScreenDeviceDeleteButton;
+        private System.Windows.Forms.Button EditScreenDeviceCancelButton;
+        private System.Windows.Forms.RichTextBox EditScreenDeviceDescription;
+        private System.Windows.Forms.TextBox EditScreenDeviceType;
+        private System.Windows.Forms.TextBox EditScreenDeviceName;
     }
 }
 
