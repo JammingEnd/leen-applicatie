@@ -39,12 +39,15 @@ namespace actualForm
             this.LvType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.LvStatus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Remark = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ColumId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.sideBarPanel.SuspendLayout();
             this.Devices.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
             // 
+            this.sideBarPanel.Controls.Add(this.DeleteButton);
             this.sideBarPanel.Controls.Add(this.textBox1);
             this.sideBarPanel.Controls.Add(this.button1);
             this.sideBarPanel.Location = new System.Drawing.Point(0, -1);
@@ -89,7 +92,8 @@ namespace actualForm
             this.LvName,
             this.LvType,
             this.LvStatus,
-            this.Remark});
+            this.Remark,
+            this.ColumId});
             this.listViewDevices.GridLines = true;
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "Name";
@@ -103,6 +107,8 @@ namespace actualForm
             this.listViewDevices.TabIndex = 0;
             this.listViewDevices.UseCompatibleStateImageBehavior = false;
             this.listViewDevices.View = System.Windows.Forms.View.Details;
+            this.listViewDevices.ItemActivate += new System.EventHandler(this.listViewDevices_ItemActivate);
+            this.listViewDevices.SelectedIndexChanged += new System.EventHandler(this.listViewDevices_SelectedIndexChanged);
             // 
             // LvName
             // 
@@ -123,6 +129,20 @@ namespace actualForm
             // 
             this.Remark.Text = "Remark";
             this.Remark.Width = 200;
+            // 
+            // ColumId
+            // 
+            this.ColumId.Width = 0;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(18, 382);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(167, 44);
+            this.DeleteButton.TabIndex = 2;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Visible = false;
             // 
             // Form1
             // 
@@ -154,6 +174,8 @@ namespace actualForm
         private System.Windows.Forms.ColumnHeader LvType;
         private System.Windows.Forms.ColumnHeader LvStatus;
         private System.Windows.Forms.ColumnHeader Remark;
+        private System.Windows.Forms.ColumnHeader ColumId;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }
 

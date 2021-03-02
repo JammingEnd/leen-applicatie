@@ -105,37 +105,18 @@ namespace actualForm
 
             while (reader.Read())
             {
-   
-                string lvName = reader.GetString(1);
-                string lvType = reader.GetString(2);
+
+                string lvName = reader.GetString(1); //defining the name for the listview
+                string lvType = reader.GetString(2); //defining the type for the listview
 
 
             }
 
         }
-        static void makeTextBox()
-        {
-
-        }
-
-        /*   private static void CheckForBool();
-           {
-           bool checker = Lendings.isActive(4);
-               if(checker == true)
-               {
-                   string lvStatus = "uitgeleent";
-                   return;
-               }
-               else
-               {
-                   string lvStatus = "uitleenbaar";
-                   return;
-               }
-        */
         private void button1_Click(object sender, EventArgs e)
         {
 
-            MySqlDataReader reader = DeviceInfo.readAll();
+            MySqlDataReader reader = DeviceInfo.readAll(); //reading database info
             if (reader == null)
             {
                 Console.WriteLine("reader is null.");
@@ -144,12 +125,12 @@ namespace actualForm
 
             while (reader.Read())
             {
-                Boolean checker = Lendings.isActive(reader.GetInt16(0));
-                Boolean isActive = Lendings.isActive(reader.GetInt16(0));
+                Boolean checker = Lendings.isActive(reader.GetInt16(0)); //defining boolean checker via lendings.cs
+                Boolean isActive = Lendings.isActive(reader.GetInt16(0)); //defining boolean IsActive via lendings.cs
 
 
                 //lvi.Tag = Devices;
-                string LvStatus = string.Empty;
+                string LvStatus = string.Empty;   //if else for checking of something is lend or not
                 if (checker == true)
                 {
                      LvStatus = "uitgeleent";
@@ -161,29 +142,40 @@ namespace actualForm
 
                 }
 
-                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null };
-                var lvi = new ListViewItem(row);
-                listViewDevices.Items.Add(lvi);
+                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null, reader.GetString(0)}; // adding the item to the list. 
+                var lvi = new ListViewItem(row); //*
+                listViewDevices.Items.Add(lvi); //*
             }
 
-            /*var showDevices = GetDevices();
-            foreach(var Devices in showDevices)
-            {
+          
+        }
+        private void listViewDevices_ItemActivate(object sender, EventArgs e)
+        {
+            DeleteButton.Visible = true;
 
-
-                lvi.Tag = Devices;
-
-                listViewDevices.Items.Add(lvi);
-            }*/
         }
 
+      
 
-        private void Form1_Load(object sender, EventArgs e)
+       
+
+      
+ private void listViewDevices_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+  private void Form1_Load(object sender, EventArgs e)
+        {
+            DeleteButton.Visible = false;
+            string DeviceIdCall = listViewDevices.SelectedItems[0].SubItems[4].Text.ToString();
+            Console.WriteLine(DeviceIdCall);
+            Console.WriteLine("if you got a number youre correct!");
 
+        }
+        static void makeTextBox()
+        {
 
+        }
         // volgens mij is er een verschil tussen schetsen en database locaties
         /*  static void lendDevice(string name, string type, string description)
           {
@@ -196,7 +188,15 @@ namespace actualForm
           }
         */
 
+  /*var showDevices = GetDevices();
+            foreach(var Devices in showDevices)
+            {
 
+
+                lvi.Tag = Devices;
+
+                listViewDevices.Items.Add(lvi);
+            }*/
 
 
 
