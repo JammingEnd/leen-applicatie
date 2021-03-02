@@ -145,14 +145,18 @@ namespace actualForm
 
         private void listViewDevices_CLICK(object sender, EventArgs e)
         {
-            //TODO
-            /*
-            DeleteButton.Visible = true;
-            string DeviceIdCall = listViewDevices.SelectedItems[0].SubItems[4].Text.ToString();
-            Console.WriteLine(DeviceIdCall);
-            Console.WriteLine("if you got a number youre correct!");
-            */
-            EditScreenDevice.Visible = true;
+            var item = listViewDevices.SelectedItems[0];
+            //int itemId = int.Parse(item.SubItems[4].Text);
+            Console.WriteLine(item.SubItems[2].Text);
+            bool isLend = item.SubItems[2].Text == "uitgeleent";
+            Console.WriteLine(isLend.ToString());
+            if (isLend)
+            {
+                ReturnScreenPanel.Visible = true;
+            } else
+            {
+                EditScreenDevice.Visible = true;
+            }
         }
 
         private void AddScreenCancel_Click(object sender, EventArgs e)

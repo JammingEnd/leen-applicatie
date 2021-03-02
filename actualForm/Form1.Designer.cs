@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,25 +54,25 @@ namespace actualForm
             this.EditScreenDeviceDescription = new System.Windows.Forms.RichTextBox();
             this.EditScreenDeviceType = new System.Windows.Forms.TextBox();
             this.EditScreenDeviceName = new System.Windows.Forms.TextBox();
-            this.ReturnScreenPanel = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.ReturnScreenEditLendingButton = new System.Windows.Forms.Button();
-            this.ReturnScreenEditDeviceButton = new System.Windows.Forms.Button();
-            this.ReturnScreenCancelButton = new System.Windows.Forms.Button();
-            this.ReturnScreenReturnButton = new System.Windows.Forms.Button();
             this.LendingScreenPanel = new System.Windows.Forms.Panel();
-            this.LendingScreenFirstName = new System.Windows.Forms.TextBox();
-            this.LendingScreenLastName = new System.Windows.Forms.TextBox();
-            this.LendingScreenStudentNum = new System.Windows.Forms.TextBox();
-            this.LendingScreenClass = new System.Windows.Forms.TextBox();
-            this.LendingScreenCancelButton = new System.Windows.Forms.Button();
             this.LendingScreenSaveButton = new System.Windows.Forms.Button();
+            this.LendingScreenCancelButton = new System.Windows.Forms.Button();
+            this.LendingScreenClass = new System.Windows.Forms.TextBox();
+            this.LendingScreenStudentNum = new System.Windows.Forms.TextBox();
+            this.LendingScreenLastName = new System.Windows.Forms.TextBox();
+            this.LendingScreenFirstName = new System.Windows.Forms.TextBox();
+            this.ReturnScreenPanel = new System.Windows.Forms.Panel();
+            this.ReturnScreenReturnButton = new System.Windows.Forms.Button();
+            this.ReturnScreenCancelButton = new System.Windows.Forms.Button();
+            this.ReturnScreenEditDeviceButton = new System.Windows.Forms.Button();
+            this.ReturnScreenEditLendingButton = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.sideBarPanel.SuspendLayout();
             this.Devices.SuspendLayout();
             this.AddScreenPanel.SuspendLayout();
             this.EditScreenDevice.SuspendLayout();
-            this.ReturnScreenPanel.SuspendLayout();
             this.LendingScreenPanel.SuspendLayout();
+            this.ReturnScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -132,10 +132,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup3.Header = "ListViewGroup";
-            listViewGroup3.Name = "Name";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup3});
+            listViewGroup1});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -229,8 +229,6 @@ namespace actualForm
             // 
             // EditScreenDevice
             // 
-            this.EditScreenDevice.Controls.Add(this.LendingScreenPanel);
-            this.EditScreenDevice.Controls.Add(this.ReturnScreenPanel);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceSaveButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDeleteButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceCancelButton);
@@ -297,6 +295,83 @@ namespace actualForm
             this.EditScreenDeviceName.Size = new System.Drawing.Size(150, 41);
             this.EditScreenDeviceName.TabIndex = 0;
             // 
+            // LendingScreenPanel
+            // 
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenSaveButton);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenCancelButton);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenClass);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenStudentNum);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenLastName);
+            this.LendingScreenPanel.Controls.Add(this.LendingScreenFirstName);
+            this.LendingScreenPanel.Location = new System.Drawing.Point(160, -1);
+            this.LendingScreenPanel.Name = "LendingScreenPanel";
+            this.LendingScreenPanel.Size = new System.Drawing.Size(447, 374);
+            this.LendingScreenPanel.TabIndex = 6;
+            this.LendingScreenPanel.Visible = false;
+            // 
+            // LendingScreenSaveButton
+            // 
+            this.LendingScreenSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.LendingScreenSaveButton.Location = new System.Drawing.Point(261, 305);
+            this.LendingScreenSaveButton.Name = "LendingScreenSaveButton";
+            this.LendingScreenSaveButton.Size = new System.Drawing.Size(131, 38);
+            this.LendingScreenSaveButton.TabIndex = 5;
+            this.LendingScreenSaveButton.Text = "Save";
+            this.LendingScreenSaveButton.UseVisualStyleBackColor = true;
+            this.LendingScreenSaveButton.Click += new System.EventHandler(this.LendingScreenSaveButton_Click);
+            // 
+            // LendingScreenCancelButton
+            // 
+            this.LendingScreenCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.LendingScreenCancelButton.Location = new System.Drawing.Point(43, 306);
+            this.LendingScreenCancelButton.Name = "LendingScreenCancelButton";
+            this.LendingScreenCancelButton.Size = new System.Drawing.Size(131, 38);
+            this.LendingScreenCancelButton.TabIndex = 4;
+            this.LendingScreenCancelButton.Text = "Cancel";
+            this.LendingScreenCancelButton.UseVisualStyleBackColor = true;
+            this.LendingScreenCancelButton.Click += new System.EventHandler(this.LendingScreenCancelButton_Click);
+            // 
+            // LendingScreenClass
+            // 
+            this.LendingScreenClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.LendingScreenClass.Location = new System.Drawing.Point(261, 186);
+            this.LendingScreenClass.Name = "LendingScreenClass";
+            this.LendingScreenClass.Size = new System.Drawing.Size(131, 31);
+            this.LendingScreenClass.TabIndex = 3;
+            this.LendingScreenClass.Text = "Klas";
+            this.LendingScreenClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LendingScreenStudentNum
+            // 
+            this.LendingScreenStudentNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.LendingScreenStudentNum.Location = new System.Drawing.Point(43, 186);
+            this.LendingScreenStudentNum.Multiline = true;
+            this.LendingScreenStudentNum.Name = "LendingScreenStudentNum";
+            this.LendingScreenStudentNum.Size = new System.Drawing.Size(131, 31);
+            this.LendingScreenStudentNum.TabIndex = 2;
+            this.LendingScreenStudentNum.Text = "Studenten Nummer";
+            this.LendingScreenStudentNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LendingScreenLastName
+            // 
+            this.LendingScreenLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.LendingScreenLastName.Location = new System.Drawing.Point(261, 60);
+            this.LendingScreenLastName.Name = "LendingScreenLastName";
+            this.LendingScreenLastName.Size = new System.Drawing.Size(131, 31);
+            this.LendingScreenLastName.TabIndex = 1;
+            this.LendingScreenLastName.Text = "Achternaam";
+            this.LendingScreenLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // LendingScreenFirstName
+            // 
+            this.LendingScreenFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
+            this.LendingScreenFirstName.Location = new System.Drawing.Point(43, 59);
+            this.LendingScreenFirstName.Name = "LendingScreenFirstName";
+            this.LendingScreenFirstName.Size = new System.Drawing.Size(131, 31);
+            this.LendingScreenFirstName.TabIndex = 0;
+            this.LendingScreenFirstName.Text = "Voornaam";
+            this.LendingScreenFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // ReturnScreenPanel
             // 
             this.ReturnScreenPanel.Controls.Add(this.ReturnScreenReturnButton);
@@ -304,10 +379,55 @@ namespace actualForm
             this.ReturnScreenPanel.Controls.Add(this.ReturnScreenEditDeviceButton);
             this.ReturnScreenPanel.Controls.Add(this.ReturnScreenEditLendingButton);
             this.ReturnScreenPanel.Controls.Add(this.textBox2);
-            this.ReturnScreenPanel.Location = new System.Drawing.Point(0, 3);
+            this.ReturnScreenPanel.Location = new System.Drawing.Point(160, -1);
             this.ReturnScreenPanel.Name = "ReturnScreenPanel";
             this.ReturnScreenPanel.Size = new System.Drawing.Size(446, 371);
             this.ReturnScreenPanel.TabIndex = 3;
+            this.ReturnScreenPanel.Visible = false;
+            // 
+            // ReturnScreenReturnButton
+            // 
+            this.ReturnScreenReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.ReturnScreenReturnButton.Location = new System.Drawing.Point(255, 298);
+            this.ReturnScreenReturnButton.Name = "ReturnScreenReturnButton";
+            this.ReturnScreenReturnButton.Size = new System.Drawing.Size(131, 44);
+            this.ReturnScreenReturnButton.TabIndex = 4;
+            this.ReturnScreenReturnButton.Text = "Retourneren";
+            this.ReturnScreenReturnButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenReturnButton.Click += new System.EventHandler(this.ReturnScreenReturnButton_Click);
+            // 
+            // ReturnScreenCancelButton
+            // 
+            this.ReturnScreenCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.ReturnScreenCancelButton.Location = new System.Drawing.Point(61, 298);
+            this.ReturnScreenCancelButton.Name = "ReturnScreenCancelButton";
+            this.ReturnScreenCancelButton.Size = new System.Drawing.Size(131, 44);
+            this.ReturnScreenCancelButton.TabIndex = 3;
+            this.ReturnScreenCancelButton.Text = "Cancel";
+            this.ReturnScreenCancelButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenCancelButton.Click += new System.EventHandler(this.ReturnScreenCancelButton_Click);
+            // 
+            // ReturnScreenEditDeviceButton
+            // 
+            this.ReturnScreenEditDeviceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.ReturnScreenEditDeviceButton.Location = new System.Drawing.Point(255, 198);
+            this.ReturnScreenEditDeviceButton.Name = "ReturnScreenEditDeviceButton";
+            this.ReturnScreenEditDeviceButton.Size = new System.Drawing.Size(131, 44);
+            this.ReturnScreenEditDeviceButton.TabIndex = 2;
+            this.ReturnScreenEditDeviceButton.Text = "Device Bewerken";
+            this.ReturnScreenEditDeviceButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenEditDeviceButton.Click += new System.EventHandler(this.ReturnScreenEditDeviceButton_Click);
+            // 
+            // ReturnScreenEditLendingButton
+            // 
+            this.ReturnScreenEditLendingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.ReturnScreenEditLendingButton.Location = new System.Drawing.Point(61, 198);
+            this.ReturnScreenEditLendingButton.Name = "ReturnScreenEditLendingButton";
+            this.ReturnScreenEditLendingButton.Size = new System.Drawing.Size(131, 44);
+            this.ReturnScreenEditLendingButton.TabIndex = 1;
+            this.ReturnScreenEditLendingButton.Text = "Lening Bewerken";
+            this.ReturnScreenEditLendingButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenEditLendingButton.Click += new System.EventHandler(this.ReturnScreenEditLendingButton_Click);
             // 
             // textBox2
             // 
@@ -322,128 +442,6 @@ namespace actualForm
             this.textBox2.Text = "Dit apparaat is al uitgeleend!";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ReturnScreenEditLendingButton
-            // 
-            this.ReturnScreenEditLendingButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.ReturnScreenEditLendingButton.Location = new System.Drawing.Point(61, 198);
-            this.ReturnScreenEditLendingButton.Name = "ReturnScreenEditLendingButton";
-            this.ReturnScreenEditLendingButton.Size = new System.Drawing.Size(131, 44);
-            this.ReturnScreenEditLendingButton.TabIndex = 1;
-            this.ReturnScreenEditLendingButton.Text = "Lening Bewerken";
-            this.ReturnScreenEditLendingButton.UseVisualStyleBackColor = true;
-            this.ReturnScreenEditLendingButton.Click += new System.EventHandler(this.ReturnScreenEditLendingButton_Click);
-            // 
-            // ReturnScreenEditDeviceButton
-            // 
-            this.ReturnScreenEditDeviceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.ReturnScreenEditDeviceButton.Location = new System.Drawing.Point(255, 198);
-            this.ReturnScreenEditDeviceButton.Name = "ReturnScreenEditDeviceButton";
-            this.ReturnScreenEditDeviceButton.Size = new System.Drawing.Size(131, 44);
-            this.ReturnScreenEditDeviceButton.TabIndex = 2;
-            this.ReturnScreenEditDeviceButton.Text = "Device Bewerken";
-            this.ReturnScreenEditDeviceButton.UseVisualStyleBackColor = true;
-            this.ReturnScreenEditDeviceButton.Click += new System.EventHandler(this.ReturnScreenEditDeviceButton_Click);
-            // 
-            // ReturnScreenCancelButton
-            // 
-            this.ReturnScreenCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.ReturnScreenCancelButton.Location = new System.Drawing.Point(61, 298);
-            this.ReturnScreenCancelButton.Name = "ReturnScreenCancelButton";
-            this.ReturnScreenCancelButton.Size = new System.Drawing.Size(131, 44);
-            this.ReturnScreenCancelButton.TabIndex = 3;
-            this.ReturnScreenCancelButton.Text = "Cancel";
-            this.ReturnScreenCancelButton.UseVisualStyleBackColor = true;
-            this.ReturnScreenCancelButton.Click += new System.EventHandler(this.ReturnScreenCancelButton_Click);
-            // 
-            // ReturnScreenReturnButton
-            // 
-            this.ReturnScreenReturnButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.ReturnScreenReturnButton.Location = new System.Drawing.Point(255, 298);
-            this.ReturnScreenReturnButton.Name = "ReturnScreenReturnButton";
-            this.ReturnScreenReturnButton.Size = new System.Drawing.Size(131, 44);
-            this.ReturnScreenReturnButton.TabIndex = 4;
-            this.ReturnScreenReturnButton.Text = "Retourneren";
-            this.ReturnScreenReturnButton.UseVisualStyleBackColor = true;
-            this.ReturnScreenReturnButton.Visible = false;
-            this.ReturnScreenReturnButton.Click += new System.EventHandler(this.ReturnScreenReturnButton_Click);
-            // 
-            // LendingScreenPanel
-            // 
-            this.LendingScreenPanel.Controls.Add(this.LendingScreenSaveButton);
-            this.LendingScreenPanel.Controls.Add(this.LendingScreenCancelButton);
-            this.LendingScreenPanel.Controls.Add(this.LendingScreenClass);
-            this.LendingScreenPanel.Controls.Add(this.LendingScreenStudentNum);
-            this.LendingScreenPanel.Controls.Add(this.LendingScreenLastName);
-            this.LendingScreenPanel.Controls.Add(this.LendingScreenFirstName);
-            this.LendingScreenPanel.Location = new System.Drawing.Point(0, 0);
-            this.LendingScreenPanel.Name = "LendingScreenPanel";
-            this.LendingScreenPanel.Size = new System.Drawing.Size(447, 374);
-            this.LendingScreenPanel.TabIndex = 6;
-            this.LendingScreenPanel.Visible = false;
-            // 
-            // LendingScreenFirstName
-            // 
-            this.LendingScreenFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.LendingScreenFirstName.Location = new System.Drawing.Point(43, 59);
-            this.LendingScreenFirstName.Name = "LendingScreenFirstName";
-            this.LendingScreenFirstName.Size = new System.Drawing.Size(131, 31);
-            this.LendingScreenFirstName.TabIndex = 0;
-            this.LendingScreenFirstName.Text = "Voornaam";
-            this.LendingScreenFirstName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LendingScreenLastName
-            // 
-            this.LendingScreenLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.LendingScreenLastName.Location = new System.Drawing.Point(261, 60);
-            this.LendingScreenLastName.Name = "LendingScreenLastName";
-            this.LendingScreenLastName.Size = new System.Drawing.Size(131, 31);
-            this.LendingScreenLastName.TabIndex = 1;
-            this.LendingScreenLastName.Text = "Achternaam";
-            this.LendingScreenLastName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LendingScreenStudentNum
-            // 
-            this.LendingScreenStudentNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.LendingScreenStudentNum.Location = new System.Drawing.Point(43, 186);
-            this.LendingScreenStudentNum.Multiline = true;
-            this.LendingScreenStudentNum.Name = "LendingScreenStudentNum";
-            this.LendingScreenStudentNum.Size = new System.Drawing.Size(131, 31);
-            this.LendingScreenStudentNum.TabIndex = 2;
-            this.LendingScreenStudentNum.Text = "Studenten Nummer";
-            this.LendingScreenStudentNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LendingScreenClass
-            // 
-            this.LendingScreenClass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.LendingScreenClass.Location = new System.Drawing.Point(261, 186);
-            this.LendingScreenClass.Name = "LendingScreenClass";
-            this.LendingScreenClass.Size = new System.Drawing.Size(131, 31);
-            this.LendingScreenClass.TabIndex = 3;
-            this.LendingScreenClass.Text = "Klas";
-            this.LendingScreenClass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LendingScreenCancelButton
-            // 
-            this.LendingScreenCancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.LendingScreenCancelButton.Location = new System.Drawing.Point(43, 306);
-            this.LendingScreenCancelButton.Name = "LendingScreenCancelButton";
-            this.LendingScreenCancelButton.Size = new System.Drawing.Size(131, 38);
-            this.LendingScreenCancelButton.TabIndex = 4;
-            this.LendingScreenCancelButton.Text = "Cancel";
-            this.LendingScreenCancelButton.UseVisualStyleBackColor = true;
-            this.LendingScreenCancelButton.Click += new System.EventHandler(this.LendingScreenCancelButton_Click);
-            // 
-            // LendingScreenSaveButton
-            // 
-            this.LendingScreenSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.LendingScreenSaveButton.Location = new System.Drawing.Point(261, 305);
-            this.LendingScreenSaveButton.Name = "LendingScreenSaveButton";
-            this.LendingScreenSaveButton.Size = new System.Drawing.Size(131, 38);
-            this.LendingScreenSaveButton.TabIndex = 5;
-            this.LendingScreenSaveButton.Text = "Save";
-            this.LendingScreenSaveButton.UseVisualStyleBackColor = true;
-            this.LendingScreenSaveButton.Click += new System.EventHandler(this.LendingScreenSaveButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,6 +450,8 @@ namespace actualForm
             this.ClientSize = new System.Drawing.Size(606, 373);
             this.Controls.Add(this.EditScreenDevice);
             this.Controls.Add(this.AddScreenPanel);
+            this.Controls.Add(this.LendingScreenPanel);
+            this.Controls.Add(this.ReturnScreenPanel);
             this.Controls.Add(this.Devices);
             this.Controls.Add(this.sideBarPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -465,10 +465,10 @@ namespace actualForm
             this.AddScreenPanel.PerformLayout();
             this.EditScreenDevice.ResumeLayout(false);
             this.EditScreenDevice.PerformLayout();
-            this.ReturnScreenPanel.ResumeLayout(false);
-            this.ReturnScreenPanel.PerformLayout();
             this.LendingScreenPanel.ResumeLayout(false);
             this.LendingScreenPanel.PerformLayout();
+            this.ReturnScreenPanel.ResumeLayout(false);
+            this.ReturnScreenPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
