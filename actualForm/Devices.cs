@@ -7,7 +7,9 @@
             if(remark == null)
             {
                 remark = "-";
+                return;
             }
+            
         }
         public string name { get; set; }
 

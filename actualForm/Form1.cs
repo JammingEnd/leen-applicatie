@@ -14,7 +14,7 @@ namespace actualForm
 
     public partial class Form1 : Form
     {
-        
+
 
 
         public Form1()
@@ -105,19 +105,36 @@ namespace actualForm
 
             while (reader.Read())
             {
+   
                 string lvName = reader.GetString(1);
                 string lvType = reader.GetString(2);
 
 
             }
+
         }
         static void makeTextBox()
         {
 
         }
 
+        /*   private static void CheckForBool();
+           {
+           bool checker = Lendings.isActive(4);
+               if(checker == true)
+               {
+                   string lvStatus = "uitgeleent";
+                   return;
+               }
+               else
+               {
+                   string lvStatus = "uitleenbaar";
+                   return;
+               }
+        */
         private void button1_Click(object sender, EventArgs e)
         {
+
             MySqlDataReader reader = DeviceInfo.readAll();
             if (reader == null)
             {
@@ -127,33 +144,37 @@ namespace actualForm
 
             while (reader.Read())
             {
+                Boolean checker = Lendings.isActive(reader.GetInt16(0));
                 Boolean isActive = Lendings.isActive(reader.GetInt16(0));
-                var row = new string[] { reader.GetString(1), reader.GetString(2), "status", null };
-                var lvi = new ListViewItem(row);
+
 
                 //lvi.Tag = Devices;
+                string LvStatus = string.Empty;
+                if (checker == true)
+                {
+                     LvStatus = "uitgeleent";
 
+                }
+                else
+                {
+                     LvStatus = "uitleenbaar";
+
+                }
+
+                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus.ToString(), null };
+                var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
             }
+
             /*var showDevices = GetDevices();
             foreach(var Devices in showDevices)
             {
-                
+
 
                 lvi.Tag = Devices;
 
                 listViewDevices.Items.Add(lvi);
             }*/
-        }
-
-        private List<Devices> GetDevices()
-        {
-            var list = new List<Devices>();
-            list.Add(new Devices() { name = LvName.ToString(), type = LvType.ToString(), status = "uitgeleent", remark = null }); ; ;
-
-            return list;
-
-
         }
 
 
