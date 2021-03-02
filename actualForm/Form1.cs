@@ -113,25 +113,7 @@ namespace actualForm
             }
 
         }
-        static void makeTextBox()
-        {
-
-        }
-
-        /*   private static void CheckForBool();
-           {
-           bool checker = Lendings.isActive(4);
-               if(checker == true)
-               {
-                   string lvStatus = "uitgeleent";
-                   return;
-               }
-               else
-               {
-                   string lvStatus = "uitleenbaar";
-                   return;
-               }
-        */
+    
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -165,16 +147,6 @@ namespace actualForm
                 listViewDevices.Items.Add(lvi);
             }
             reader.Close();
-
-            /*var showDevices = GetDevices();
-            foreach(var Devices in showDevices)
-            {
-
-
-                lvi.Tag = Devices;
-
-                listViewDevices.Items.Add(lvi);
-            }*/
         }
 
 
@@ -187,23 +159,6 @@ namespace actualForm
             Console.WriteLine("if you got a number youre correct!");
             */
         }
-
-
-        // volgens mij is er een verschil tussen schetsen en database locaties
-        /*  static void lendDevice(string name, string type, string description)
-          {
-              MySqlClient client = new MySqlClient();
-              MySqlConnection connection = client.connect();
-              client.exec(
-                  connection,
-                  $"INSERT INTO device_info (name, type, description) VALUES ({name},{type},{description});"
-                  );
-          }
-        */
-
-
-
-
         private void listViewDevices_ItemActivate(object sender, EventArgs e)
         {
             DeleteButton.Visible = true;
@@ -213,6 +168,9 @@ namespace actualForm
         }
 
 
+    static void makeTextBox()
+        {
 
+        }
 }
 }
