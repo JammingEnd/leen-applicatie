@@ -94,6 +94,11 @@ namespace actualForm
             connection.Close();
         }
 
+        private void handleError(string errorMessage)
+        {
+            // HANDLE ERRORS HERE.
+        }
+
         private void AddDevice(object sender, EventArgs e)
         {
             AddScreenPanel.Visible = true;
