@@ -54,7 +54,7 @@ namespace actualForm
             this.EditScreenDeviceDescription = new System.Windows.Forms.RichTextBox();
             this.EditScreenDeviceType = new System.Windows.Forms.TextBox();
             this.EditScreenDeviceName = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ReturnScreenPanel = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.ReturnScreenEditLendingButton = new System.Windows.Forms.Button();
             this.ReturnScreenEditDeviceButton = new System.Windows.Forms.Button();
@@ -64,7 +64,7 @@ namespace actualForm
             this.Devices.SuspendLayout();
             this.AddScreenPanel.SuspendLayout();
             this.EditScreenDevice.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.ReturnScreenPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -287,17 +287,17 @@ namespace actualForm
             this.EditScreenDeviceName.Size = new System.Drawing.Size(150, 41);
             this.EditScreenDeviceName.TabIndex = 0;
             // 
-            // panel1
+            // ReturnScreenPanel
             // 
-            this.panel1.Controls.Add(this.ReturnScreenReturnButton);
-            this.panel1.Controls.Add(this.ReturnScreenCancelButton);
-            this.panel1.Controls.Add(this.ReturnScreenEditDeviceButton);
-            this.panel1.Controls.Add(this.ReturnScreenEditLendingButton);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Location = new System.Drawing.Point(160, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(446, 371);
-            this.panel1.TabIndex = 3;
+            this.ReturnScreenPanel.Controls.Add(this.ReturnScreenReturnButton);
+            this.ReturnScreenPanel.Controls.Add(this.ReturnScreenCancelButton);
+            this.ReturnScreenPanel.Controls.Add(this.ReturnScreenEditDeviceButton);
+            this.ReturnScreenPanel.Controls.Add(this.ReturnScreenEditLendingButton);
+            this.ReturnScreenPanel.Controls.Add(this.textBox2);
+            this.ReturnScreenPanel.Location = new System.Drawing.Point(160, 2);
+            this.ReturnScreenPanel.Name = "ReturnScreenPanel";
+            this.ReturnScreenPanel.Size = new System.Drawing.Size(446, 371);
+            this.ReturnScreenPanel.TabIndex = 3;
             // 
             // textBox2
             // 
@@ -359,7 +359,7 @@ namespace actualForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(606, 373);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ReturnScreenPanel);
             this.Controls.Add(this.EditScreenDevice);
             this.Controls.Add(this.AddScreenPanel);
             this.Controls.Add(this.Devices);
@@ -375,8 +375,8 @@ namespace actualForm
             this.AddScreenPanel.PerformLayout();
             this.EditScreenDevice.ResumeLayout(false);
             this.EditScreenDevice.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.ReturnScreenPanel.ResumeLayout(false);
+            this.ReturnScreenPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -407,7 +407,7 @@ namespace actualForm
         private System.Windows.Forms.RichTextBox EditScreenDeviceDescription;
         private System.Windows.Forms.TextBox EditScreenDeviceType;
         private System.Windows.Forms.TextBox EditScreenDeviceName;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel ReturnScreenPanel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button ReturnScreenReturnButton;
         private System.Windows.Forms.Button ReturnScreenCancelButton;
