@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -124,10 +124,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Name";
+            listViewGroup4.Header = "ListViewGroup";
+            listViewGroup4.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup4});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -221,6 +221,7 @@ namespace actualForm
             // 
             // EditScreenDevice
             // 
+            this.EditScreenDevice.Controls.Add(this.ReturnScreenPanel);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceSaveButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDeleteButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceCancelButton);
@@ -294,7 +295,7 @@ namespace actualForm
             this.ReturnScreenPanel.Controls.Add(this.ReturnScreenEditDeviceButton);
             this.ReturnScreenPanel.Controls.Add(this.ReturnScreenEditLendingButton);
             this.ReturnScreenPanel.Controls.Add(this.textBox2);
-            this.ReturnScreenPanel.Location = new System.Drawing.Point(160, 2);
+            this.ReturnScreenPanel.Location = new System.Drawing.Point(0, 3);
             this.ReturnScreenPanel.Name = "ReturnScreenPanel";
             this.ReturnScreenPanel.Size = new System.Drawing.Size(446, 371);
             this.ReturnScreenPanel.TabIndex = 3;
@@ -321,6 +322,7 @@ namespace actualForm
             this.ReturnScreenEditLendingButton.TabIndex = 1;
             this.ReturnScreenEditLendingButton.Text = "Lening Bewerken";
             this.ReturnScreenEditLendingButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenEditLendingButton.Click += new System.EventHandler(this.ReturnScreenEditLendingButton_Click);
             // 
             // ReturnScreenEditDeviceButton
             // 
@@ -331,6 +333,7 @@ namespace actualForm
             this.ReturnScreenEditDeviceButton.TabIndex = 2;
             this.ReturnScreenEditDeviceButton.Text = "Device Bewerken";
             this.ReturnScreenEditDeviceButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenEditDeviceButton.Click += new System.EventHandler(this.ReturnScreenEditDeviceButton_Click);
             // 
             // ReturnScreenCancelButton
             // 
@@ -341,6 +344,7 @@ namespace actualForm
             this.ReturnScreenCancelButton.TabIndex = 3;
             this.ReturnScreenCancelButton.Text = "Cancel";
             this.ReturnScreenCancelButton.UseVisualStyleBackColor = true;
+            this.ReturnScreenCancelButton.Click += new System.EventHandler(this.ReturnScreenCancelButton_Click);
             // 
             // ReturnScreenReturnButton
             // 
@@ -352,6 +356,7 @@ namespace actualForm
             this.ReturnScreenReturnButton.Text = "Retourneren";
             this.ReturnScreenReturnButton.UseVisualStyleBackColor = true;
             this.ReturnScreenReturnButton.Visible = false;
+            this.ReturnScreenReturnButton.Click += new System.EventHandler(this.ReturnScreenReturnButton_Click);
             // 
             // Form1
             // 
@@ -359,7 +364,6 @@ namespace actualForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(606, 373);
-            this.Controls.Add(this.ReturnScreenPanel);
             this.Controls.Add(this.EditScreenDevice);
             this.Controls.Add(this.AddScreenPanel);
             this.Controls.Add(this.Devices);

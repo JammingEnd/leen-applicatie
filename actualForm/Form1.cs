@@ -213,5 +213,25 @@ namespace actualForm
             DeviceInfo.add(name, type, desc);
             AddScreenCancel_Click(sender, e);
         }
+
+        private void ReturnScreenEditLendingButton_Click(object sender, EventArgs e)
+        {
+            // EDITING A LENDING
+        }
+
+        private void ReturnScreenEditDeviceButton_Click(object sender, EventArgs e)
+        {
+            // EDITING A DEVICE
+        }
+
+        private void ReturnScreenCancelButton_Click(object sender, EventArgs e)
+        {
+            // CANCEL BUTTON
+        }
+
+        private void ReturnScreenReturnButton_Click(object sender, EventArgs e)
+        {
+            // RETURNING A DEVICE
+        }
     }
 }
