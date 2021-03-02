@@ -233,5 +233,15 @@ namespace actualForm
         {
             // RETURNING A DEVICE
         }
+
+        private void LendingScreenCancelButton_Click(object sender, EventArgs e)
+        {
+            // LENDING CANCEL BUTTON
+        }
+
+        private void LendingScreenSaveButton_Click(object sender, EventArgs e)
+        {
+            // LENDING SAVE BUTTON
+        }
     }
 }
