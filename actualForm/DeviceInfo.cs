@@ -64,7 +64,7 @@ namespace actualForm
         {
             client.exec(
                 GetConnection(),
-                $"DELETE FROM device_info WHERE id = \"{id}\";"
+                $"UPDATE device_info SET isDeleted = true WHERE id = \"{id}\";"
                 );
             connection.Close();
         }
