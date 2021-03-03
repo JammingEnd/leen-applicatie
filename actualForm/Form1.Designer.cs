@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -137,10 +137,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Name";
+            listViewGroup6.Header = "ListViewGroup";
+            listViewGroup6.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup6});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -452,10 +452,10 @@ namespace actualForm
             this.ErrorPanel.Controls.Add(this.ErrorButton);
             this.ErrorPanel.Controls.Add(this.ErrorMessage);
             this.ErrorPanel.Controls.Add(this.ErrorTitle);
-            this.ErrorPanel.Location = new System.Drawing.Point(190, 35);
+            this.ErrorPanel.Location = new System.Drawing.Point(190, 13);
             this.ErrorPanel.Name = "ErrorPanel";
-            this.ErrorPanel.Size = new System.Drawing.Size(390, 310);
-            this.ErrorPanel.TabIndex = 7;
+            this.ErrorPanel.Size = new System.Drawing.Size(390, 348);
+            this.ErrorPanel.TabIndex = 1;
             this.ErrorPanel.Visible = false;
             // 
             // ErrorButton
@@ -466,6 +466,7 @@ namespace actualForm
             this.ErrorButton.TabIndex = 2;
             this.ErrorButton.Text = "Change";
             this.ErrorButton.UseVisualStyleBackColor = true;
+            this.ErrorButton.Click += new System.EventHandler(this.ErrorButton_Click);
             // 
             // ErrorMessage
             // 

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -96,7 +97,10 @@ namespace actualForm
 
         private void handleError(string errorMessage)
         {
-            // HANDLE ERRORS HERE.
+            Console.WriteLine("Executing this");
+            ErrorMessage.Text = errorMessage;
+            ErrorPanel.BringToFront();
+            ErrorPanel.Visible = true;
         }
 
         private void AddDevice(object sender, EventArgs e)
@@ -136,6 +140,34 @@ namespace actualForm
                 var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
             }
+        }
+
+        private bool ValidDateDevice(string name, string type, string desc)
+        {
+            string patternName = @"^[a-zA-Z]{1,50}$";
+            Regex regName = new Regex(patternName);
+            string patternType = @"^[a-zA-Z0-9]{1,25}$";
+            Regex regType = new Regex(patternType);
+            string patternDesc = @"^[a-zA-Z0-9!?#]{1,500}$";
+            Regex regDesc = new Regex(patternDesc);
+            Console.WriteLine(regName.Match(name).Success);
+            if (!regName.Match(name).Success)
+            {
+                handleError("A name may only include letters. And can have a length between 1 and 50 characters.");
+                return false;
+            }
+            if (!regType.Match(type).Success)
+            {
+                handleError("A type may only include numbers and letters. And can have a length between 1 and 25 characters.");
+                return false;
+            }
+            if (desc != null && desc.Length > 0 && !regDesc.Match(desc).Success)
+            {
+                handleError("A description may not include special characters. And may not have more than 500 characters.");
+                return false;
+            }
+
+            return true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -198,20 +230,9 @@ namespace actualForm
             string name = AddScreenName.Text;
             string type = AddScreenType.Text;
             string desc = AddScreenDescription.Text;
-            if (name.Length < 1)
+            if (!ValidDateDevice(name, type, desc))
             {
-                // handle this. Requires a name. 
-            } else if (name.Length > 50)
-            {
-                // handle this. A name can not be longer than 50 chars.
-            }
-
-            if (type.Length < 1)
-            {
-                // handle this. Requires a Type. 
-            } else if (type.Length > 25)
-            {
-                // handle this. A Type can not be longer than 25 chars.
+                return;
             }
 
             DeviceInfo.add(name, type, desc);
@@ -246,6 +267,12 @@ namespace actualForm
         private void LendingScreenSaveButton_Click(object sender, EventArgs e)
         {
             // LENDING SAVE BUTTON
+        }
+
+        private void ErrorButton_Click(object sender, EventArgs e)
+        {
+            ErrorPanel.SendToBack();
+            ErrorPanel.Visible = false;
         }
     }
 }

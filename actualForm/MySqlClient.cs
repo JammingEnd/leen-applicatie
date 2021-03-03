@@ -23,7 +23,7 @@ namespace actualForm
             {
                 MySqlConnection con = new MySqlConnection(str);
                 con.Open();
-                Console.WriteLine("Database Connected.");
+                //Console.WriteLine("Database Connected.");
                 return con;
             } catch (Exception err)
             {
@@ -44,7 +44,7 @@ namespace actualForm
         {
             try
             {
-                Console.WriteLine(str);
+                //Console.WriteLine(str);
                 MySqlCommand cmd = new MySqlCommand(str, con);
                 return cmd.ExecuteReader();
             } catch (Exception err)
