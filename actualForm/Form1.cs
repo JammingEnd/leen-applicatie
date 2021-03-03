@@ -220,7 +220,11 @@ namespace actualForm
 
         private void EditScreenDeviceDeleteButton_Click(object sender, EventArgs e)
         {
-            
+            ListViewItem itemId = listViewDevices.SelectedItems[0];
+
+            int IdDelete = Convert.ToInt16(itemId.SubItems[4].Text);
+            // DeviceInfo.deleteId(IdDelete);
+            Console.WriteLine(IdDelete);
         }
 
         private void EditScreenDeviceSaveButton_Click(object sender, EventArgs e)
