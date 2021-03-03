@@ -64,7 +64,7 @@ namespace actualForm
         {
             client.exec(
                 GetConnection(),
-                $"UPDATE device_info SET isDeleted = true WHERE id = \"{id}\";"
+                $"UPDATE device_info SET isDeleted = true WHERE deviceId = \"{id}\";"
                 );
             connection.Close();
         }
@@ -73,7 +73,7 @@ namespace actualForm
         {
             MySqlDataReader data = client.exec(
                 GetConnection(),
-                "SELECT * FROM device_info;"
+                "SELECT * FROM device_info WHERE isDeleted = false;"
                 );
             return data;
         }
