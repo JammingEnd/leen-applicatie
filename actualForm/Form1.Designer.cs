@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -67,12 +67,17 @@ namespace actualForm
             this.ReturnScreenEditDeviceButton = new System.Windows.Forms.Button();
             this.ReturnScreenEditLendingButton = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ErrorPanel = new System.Windows.Forms.Panel();
+            this.ErrorButton = new System.Windows.Forms.Button();
+            this.ErrorMessage = new System.Windows.Forms.RichTextBox();
+            this.ErrorTitle = new System.Windows.Forms.TextBox();
             this.sideBarPanel.SuspendLayout();
             this.Devices.SuspendLayout();
             this.AddScreenPanel.SuspendLayout();
             this.EditScreenDevice.SuspendLayout();
             this.LendingScreenPanel.SuspendLayout();
             this.ReturnScreenPanel.SuspendLayout();
+            this.ErrorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBarPanel
@@ -132,10 +137,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Name";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup2});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -442,12 +447,55 @@ namespace actualForm
             this.textBox2.Text = "Dit apparaat is al uitgeleend!";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // ErrorPanel
+            // 
+            this.ErrorPanel.Controls.Add(this.ErrorButton);
+            this.ErrorPanel.Controls.Add(this.ErrorMessage);
+            this.ErrorPanel.Controls.Add(this.ErrorTitle);
+            this.ErrorPanel.Location = new System.Drawing.Point(190, 35);
+            this.ErrorPanel.Name = "ErrorPanel";
+            this.ErrorPanel.Size = new System.Drawing.Size(390, 310);
+            this.ErrorPanel.TabIndex = 7;
+            this.ErrorPanel.Visible = false;
+            // 
+            // ErrorButton
+            // 
+            this.ErrorButton.Location = new System.Drawing.Point(92, 229);
+            this.ErrorButton.Name = "ErrorButton";
+            this.ErrorButton.Size = new System.Drawing.Size(184, 52);
+            this.ErrorButton.TabIndex = 2;
+            this.ErrorButton.Text = "Change";
+            this.ErrorButton.UseVisualStyleBackColor = true;
+            // 
+            // ErrorMessage
+            // 
+            this.ErrorMessage.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ErrorMessage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ErrorMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorMessage.Location = new System.Drawing.Point(32, 79);
+            this.ErrorMessage.Name = "ErrorMessage";
+            this.ErrorMessage.Size = new System.Drawing.Size(312, 106);
+            this.ErrorMessage.TabIndex = 1;
+            this.ErrorMessage.Text = "Something went wrong.";
+            // 
+            // ErrorTitle
+            // 
+            this.ErrorTitle.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ErrorTitle.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.ErrorTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ErrorTitle.Location = new System.Drawing.Point(14, 19);
+            this.ErrorTitle.Name = "ErrorTitle";
+            this.ErrorTitle.Size = new System.Drawing.Size(349, 37);
+            this.ErrorTitle.TabIndex = 0;
+            this.ErrorTitle.Text = "Something went wrong!";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(606, 373);
+            this.Controls.Add(this.ErrorPanel);
             this.Controls.Add(this.EditScreenDevice);
             this.Controls.Add(this.AddScreenPanel);
             this.Controls.Add(this.LendingScreenPanel);
@@ -469,6 +517,8 @@ namespace actualForm
             this.LendingScreenPanel.PerformLayout();
             this.ReturnScreenPanel.ResumeLayout(false);
             this.ReturnScreenPanel.PerformLayout();
+            this.ErrorPanel.ResumeLayout(false);
+            this.ErrorPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -512,6 +562,10 @@ namespace actualForm
         private System.Windows.Forms.TextBox LendingScreenStudentNum;
         private System.Windows.Forms.TextBox LendingScreenLastName;
         private System.Windows.Forms.TextBox LendingScreenFirstName;
+        private System.Windows.Forms.Panel ErrorPanel;
+        private System.Windows.Forms.Button ErrorButton;
+        private System.Windows.Forms.RichTextBox ErrorMessage;
+        private System.Windows.Forms.TextBox ErrorTitle;
     }
 }
 
