@@ -242,6 +242,8 @@ namespace actualForm
         private void ReturnScreenEditLendingButton_Click(object sender, EventArgs e)
         {
             // EDITING A LENDING
+            ReturnScreenPanel.Visible = false;
+            LendingScreenPanel.Visible = true;
         }
 
         private void ReturnScreenEditDeviceButton_Click(object sender, EventArgs e)
@@ -270,6 +272,37 @@ namespace actualForm
         private void LendingScreenSaveButton_Click(object sender, EventArgs e)
         {
             // LENDING SAVE BUTTON
+            // idk where the button is to go to this screen actually, lol.
+            string errMessage = string.Empty;
+            Regex regFName = new Regex(@"^[A-Z][a-z]{2,20}$");
+            Regex regLName = new Regex(@"^[A-Z][a-z]{2,20}$");
+            Regex regStudentNum = new Regex(@"^[0-9]{6,10}$");
+            Regex regClass = new Regex(@"^[a-zA-Z0-9]{6,10}$");
+            if (!regFName.Match(LendingScreenFirstName.Text).Success)
+            {
+                errMessage += "First name can only contain letters and starts with a captial letter and needs to have 2 - 20 letters.\n\n";
+            } 
+            if (!regLName.Match(LendingScreenLastName.Text).Success)
+            {
+                errMessage += "First name can only contain letters and starts with a captial letter and needs to have 2 - 20 letters.\n\n";
+            }
+            if (!regStudentNum.Match(LendingScreenStudentNum.Text).Success)
+            {
+                errMessage += "Sudent ID can only contain numbers and can have a length between 6 - 10.\n\n";
+            }
+            if (LendingScreenClass.Text.Length > 0 && !regClass.Match(LendingScreenClass.Text).Success)
+            {
+                errMessage += "Class can only contain letters and numbers and can have a length between 6 - 10.";
+            }
+            if (errMessage.EndsWith("\n\n"))
+            {
+                errMessage = errMessage.Substring(0, errMessage.Length - 4);
+            }
+            if (errMessage.Length > 0)
+            {
+                handleError(errMessage);
+                return;
+            }
         }
 
         private void ErrorButton_Click(object sender, EventArgs e)
