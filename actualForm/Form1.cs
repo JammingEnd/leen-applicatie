@@ -107,7 +107,14 @@ namespace actualForm
 
         private void AddDevice(object sender, EventArgs e)
         {
-            AddScreenPanel.Visible = true;
+            /*if (
+                AddScreenPanel.Visible ||
+                LendingScreenPanel.Visible ||
+                ReturnScreenPanel.Visible ||
+                EditScreenDevice.Visible
+                )*/
+                AddScreenPanel.Visible = true;
+
         }
 
         private void loadDevices()
@@ -285,7 +292,7 @@ namespace actualForm
             } 
             if (!regLName.Match(LendingScreenLastName.Text).Success)
             {
-                errMessage += "First name can only contain letters and starts with a captial letter and needs to have 2 - 20 letters.\n\n";
+                errMessage += "Last name can only contain letters and starts with a captial letter and needs to have 2 - 20 letters.\n\n";
             }
             if (!regStudentNum.Match(LendingScreenStudentNum.Text).Success)
             {
