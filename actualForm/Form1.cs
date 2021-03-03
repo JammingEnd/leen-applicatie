@@ -247,11 +247,13 @@ namespace actualForm
         private void ReturnScreenEditDeviceButton_Click(object sender, EventArgs e)
         {
             // EDITING A DEVICE
+            ReturnScreenPanel.Visible = false;
+            EditScreenDevice.Visible = true;
         }
 
         private void ReturnScreenCancelButton_Click(object sender, EventArgs e)
         {
-            // CANCEL BUTTON
+            ReturnScreenPanel.Visible = false;
         }
 
         private void ReturnScreenReturnButton_Click(object sender, EventArgs e)
@@ -262,6 +264,7 @@ namespace actualForm
         private void LendingScreenCancelButton_Click(object sender, EventArgs e)
         {
             // LENDING CANCEL BUTTON
+            LendingScreenPanel.Visible = false;
         }
 
         private void LendingScreenSaveButton_Click(object sender, EventArgs e)
