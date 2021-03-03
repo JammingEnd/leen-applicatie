@@ -28,6 +28,7 @@ namespace actualForm
                 Console.WriteLine("Couldn't connect to the database.");
                 return;
             }
+            preInit(connection, client);
             //preInit(connection, client);
             // DeviceInfo.add("name", "type", "desc");
             // User.add("firstname", "lastname", 123, "class");
@@ -45,6 +46,7 @@ namespace actualForm
                 "name VARCHAR(50) NOT NULL, " +
                 "type VARCHAR(25) NOT NULL, " +
                 "description TEXT, " +
+                "isDeleted boolean NOT NULL DEFAULT false, " +
                 "PRIMARY KEY(deviceId)" +
                 ")"
                 );
@@ -142,7 +144,7 @@ namespace actualForm
             }
         }
 
-        private bool ValidDateDevice(string name, string type, string desc)
+        private bool ValiDateDevice(string name, string type, string desc)
         {
             string patternName = @"^[a-zA-Z]{1,50}$";
             Regex regName = new Regex(patternName);
@@ -193,7 +195,6 @@ namespace actualForm
 
         private void AddScreenCancel_Click(object sender, EventArgs e)
         {
-            //TODO
             AddScreenName.Text = null;
             AddScreenDescription.Text = null;
             AddScreenType.Text = null;
@@ -212,7 +213,7 @@ namespace actualForm
 
         private void EditScreenDeviceDeleteButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(sender.ToString());
+            
         }
 
         private void EditScreenDeviceSaveButton_Click(object sender, EventArgs e)
@@ -230,7 +231,7 @@ namespace actualForm
             string name = AddScreenName.Text;
             string type = AddScreenType.Text;
             string desc = AddScreenDescription.Text;
-            if (!ValidDateDevice(name, type, desc))
+            if (!ValiDateDevice(name, type, desc))
             {
                 return;
             }
@@ -303,6 +304,8 @@ namespace actualForm
                 handleError(errMessage);
                 return;
             }
+
+            //TODO saving.
         }
 
         private void ErrorButton_Click(object sender, EventArgs e)
