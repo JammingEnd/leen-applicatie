@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -51,6 +51,7 @@ namespace actualForm
             this.EditScreenDeviceSaveButton = new System.Windows.Forms.Button();
             this.EditScreenDeviceDeleteButton = new System.Windows.Forms.Button();
             this.EditScreenDeviceCancelButton = new System.Windows.Forms.Button();
+            this.EditScreenLendOutButton = new System.Windows.Forms.Button();
             this.EditScreenDeviceDescription = new System.Windows.Forms.RichTextBox();
             this.EditScreenDeviceType = new System.Windows.Forms.TextBox();
             this.EditScreenDeviceName = new System.Windows.Forms.TextBox();
@@ -137,10 +138,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup6.Header = "ListViewGroup";
-            listViewGroup6.Name = "Name";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6});
+            listViewGroup1});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -237,6 +238,7 @@ namespace actualForm
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceSaveButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDeleteButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceCancelButton);
+            this.EditScreenDevice.Controls.Add(this.EditScreenLendOutButton);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceDescription);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceType);
             this.EditScreenDevice.Controls.Add(this.EditScreenDeviceName);
@@ -275,6 +277,16 @@ namespace actualForm
             this.EditScreenDeviceCancelButton.Text = "Cancel";
             this.EditScreenDeviceCancelButton.UseVisualStyleBackColor = true;
             this.EditScreenDeviceCancelButton.Click += new System.EventHandler(this.EditScreenDeviceCancelButton_Click);
+            // 
+            // EditScreenLendOutButton
+            // 
+            this.EditScreenLendOutButton.Location = new System.Drawing.Point(160, 250);
+            this.EditScreenLendOutButton.Name = "EditScreenLendOutButton";
+            this.EditScreenLendOutButton.Size = new System.Drawing.Size(113, 40);
+            this.EditScreenLendOutButton.TabIndex = 4;
+            this.EditScreenLendOutButton.Text = "Lend Out!";
+            this.EditScreenLendOutButton.UseVisualStyleBackColor = true;
+            this.EditScreenLendOutButton.Click += new System.EventHandler(this.EditScreenDeviceLendOut_Click);
             // 
             // EditScreenDeviceDescription
             // 
@@ -547,6 +559,7 @@ namespace actualForm
         private System.Windows.Forms.Button EditScreenDeviceSaveButton;
         private System.Windows.Forms.Button EditScreenDeviceDeleteButton;
         private System.Windows.Forms.Button EditScreenDeviceCancelButton;
+        private System.Windows.Forms.Button EditScreenLendOutButton;
         private System.Windows.Forms.RichTextBox EditScreenDeviceDescription;
         private System.Windows.Forms.TextBox EditScreenDeviceType;
         private System.Windows.Forms.TextBox EditScreenDeviceName;

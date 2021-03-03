@@ -113,7 +113,7 @@ namespace actualForm
                 ReturnScreenPanel.Visible ||
                 EditScreenDevice.Visible
                 )*/
-                AddScreenPanel.Visible = true;
+            AddScreenPanel.Visible = true;
 
         }
 
@@ -196,6 +196,7 @@ namespace actualForm
                 ReturnScreenPanel.Visible = true;
             } else
             {
+                EditScreenLendOutButton.Visible = !isLend;
                 EditScreenDevice.Visible = true;
             }
         }
@@ -222,7 +223,7 @@ namespace actualForm
         {
             var item = listViewDevices.SelectedItems[0];
 
-            int IdDelete = Convert.ToInt16(item.SubItems[4].Text);
+            int IdDelete = int.Parse(item.SubItems[4].Text);
             DeviceInfo.deleteId(IdDelete);
             EditScreenDevice.Visible = false;
             loadDevices();
@@ -231,9 +232,27 @@ namespace actualForm
         private void EditScreenDeviceSaveButton_Click(object sender, EventArgs e)
         {
             // SAVE AN EDITED DEVICE.
-            string itemIdString = listViewDevices.SelectedItems[0].SubItems[4].Text;
-            int itemId = int.Parse(itemIdString);
-            Console.WriteLine(itemId);
+            var item = listViewDevices.SelectedItems[0];
+
+            int id = int.Parse(item.SubItems[4].Text);
+            string name = EditScreenDeviceName.Text;
+            string type = EditScreenDeviceType.Text;
+            string desc = EditScreenDeviceDescription.Text;
+            if (!ValiDateDevice(name, type, desc))
+            {
+                return;
+            }
+
+            DeviceInfo.update(id, name, type, desc);
+            EditScreenDevice.Visible = false;
+            loadDevices();
+
+        }
+
+        private void EditScreenDeviceLendOut_Click(object sender, EventArgs e)
+        {
+            EditScreenDevice.Visible = false;
+            LendingScreenPanel.Visible = true;
         }
 
         private void AddScreenSave_Click(object sender, EventArgs e)
@@ -263,6 +282,9 @@ namespace actualForm
         {
             // EDITING A DEVICE
             ReturnScreenPanel.Visible = false;
+            var item = listViewDevices.SelectedItems[0];
+            bool isLendOut = item.SubItems[2].Text == "uitgeleent";
+            EditScreenLendOutButton.Visible = !isLendOut;
             EditScreenDevice.Visible = true;
         }
 

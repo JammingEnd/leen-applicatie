@@ -24,40 +24,12 @@ namespace actualForm
             connection.Close();
         }
 
-        public static void setName(int id, string name)
+        public static void update(int id, string name, string type, string description)
         {
             client.exec(
                 GetConnection(),
-                $"UPDATE device_info SET name = \"{name}\" WHERE deviceId = \"{id}\";"
-                );
-            connection.Close();
-        }
-
-        public static void setType(int id, string type)
-        {
-            client.exec(
-                GetConnection(),
-                $"UPDATE device_info SET type = \"{type}\" WHERE deviceId = \"{id}\";"
-                );
-            connection.Close();
-        }
-
-        public static void setDescription(int id, string description)
-        {
-            client.exec(
-                GetConnection(),
-                $"UPDATE device_info SET description = \"{description}\" WHERE deviceId = \"{id}\";"
-                );
-            connection.Close();
-        }
-
-        public static void updateAll(int id, string name, string type, string description)
-        {
-            client.exec(
-                GetConnection(),
-                $"UPDATE device_info SET name = \"{name}\", type = \"{type}\", description = \"{description}\" WHERE deviceId = \"{id}\";"
-                );
-            connection.Close();
+                $"INSERT INTO device_info (deviceId, name, type, description) VALUES (\"{id}\", \"{name}\",\"{type}\",\"{description}\") ON DUPLICATE KEY UPDATE name = \"{name}\", type = \"{type}\", description = \"{description}\""
+            );
         }
 
         public static void deleteId(int id)
