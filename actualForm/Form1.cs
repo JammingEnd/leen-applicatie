@@ -324,5 +324,12 @@ namespace actualForm
             ErrorPanel.SendToBack();
             ErrorPanel.Visible = false;
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string itemSearhing = searchBox.Text;
+            ListView listView = listViewDevices;
+            listView.Items.Find(itemSearhing, true);
+        }
     }
 }
