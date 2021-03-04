@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup6 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
@@ -95,7 +95,7 @@ namespace actualForm
             // DeleteButton
             // 
             this.DeleteButton.Location = new System.Drawing.Point(14, 310);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(125, 36);
             this.DeleteButton.TabIndex = 2;
@@ -140,10 +140,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup6.Header = "ListViewGroup";
-            listViewGroup6.Name = "Name";
+            listViewGroup1.Header = "ListViewGroup";
+            listViewGroup1.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup6});
+            listViewGroup1});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -282,8 +282,8 @@ namespace actualForm
             // 
             // EditScreenLendOutButton
             // 
-            this.EditScreenLendOutButton.Location = new System.Drawing.Point(120, 203);
-            this.EditScreenLendOutButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditScreenLendOutButton.Location = new System.Drawing.Point(180, 240);
+            this.EditScreenLendOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditScreenLendOutButton.Name = "EditScreenLendOutButton";
             this.EditScreenLendOutButton.Size = new System.Drawing.Size(85, 32);
             this.EditScreenLendOutButton.TabIndex = 4;
@@ -420,7 +420,7 @@ namespace actualForm
             // returnBescrijving
             // 
             this.returnBescrijving.Location = new System.Drawing.Point(125, 140);
-            this.returnBescrijving.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.returnBescrijving.Margin = new System.Windows.Forms.Padding(2);
             this.returnBescrijving.Name = "returnBescrijving";
             this.returnBescrijving.Size = new System.Drawing.Size(209, 56);
             this.returnBescrijving.TabIndex = 7;
@@ -528,7 +528,7 @@ namespace actualForm
             this.Controls.Add(this.ReturnScreenPanel);
             this.Controls.Add(this.Devices);
             this.Controls.Add(this.sideBarPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Uitleen applicatie";
             this.Load += new System.EventHandler(this.Form1_Load);
