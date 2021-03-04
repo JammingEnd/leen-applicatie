@@ -296,6 +296,13 @@ namespace actualForm
         private void ReturnScreenReturnButton_Click(object sender, EventArgs e)
         {
             // RETURNING A DEVICE
+            var item = listViewDevices.SelectedItems[0];
+
+            int id = int.Parse(item.SubItems[4].Text);
+            string returnDesc = returnBescrijving.Text;
+            Lendings.delete(id, returnDesc);
+            ReturnScreenPanel.Visible = false;
+            loadDevices();
         }
 
         private void LendingScreenCancelButton_Click(object sender, EventArgs e)

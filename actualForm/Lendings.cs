@@ -40,16 +40,25 @@ namespace actualForm
                 GetConnection(),
                 $"INSERT INTO lendings (deviceId, last_updated, userId, isActive) VALUES (\"{deviceId}\", NOW(), \"{userId}\", \"{1}\");"
                 );
-            connection.Close();
+            
         }
 
-        public static void delete(int lendingId)
+        public static void delete(int deviceId, string description)
         {
-            client.exec(
+            MySqlDataReader reader = client.exec(
                 GetConnection(),
-                $"UPDATE lendings SET isActive = \"{0}\" WHERE lendingId = \"{lendingId}\""
+                $"SELECT * FROM lendings WHERE isActive = 1 AND deviceId = \"{deviceId}\";"
                 );
-            connection.Close();
+            while (reader.Read())
+            {
+                int lendingId = reader.GetInt16(0);
+                int userId = reader.GetInt16(3);
+                Returns.add(deviceId, userId, lendingId, description);
+                client.exec(
+                    GetConnection(),
+                    $"UPDATE lendings SET isActive = \"{0}\" WHERE deviceId = \"{deviceId}\" AND isActive = \"{1}\";"
+                    );
+            }
         }
 
         public static void updateAll(int lendingId, int deviceId, int userId)
@@ -58,7 +67,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE lendings SET deviceId = \"{deviceId}\", last_updated = NOW(), userId = \"{userId}\" WHERE lendingId = \"{lendingId}\";"
                 );
-            connection.Close();
         }
 
         public static void updateDeviceId(int lendingId, int deviceId)
@@ -67,7 +75,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE lendings SET deviceId = \"{deviceId}\", last_updated = NOW() WHERE lendingId = \"{lendingId}\";"
                 );
-            connection.Close();
         }
 
         public static void updateUserId(int lendingId, int userId)
@@ -76,7 +83,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE lendings SET userId = \"{userId}\", last_updated = NOW() WHERE lendingId = \"{lendingId}\";"
                 );
-            connection.Close();
         }
 
         public static MySqlDataReader getOneLending(int deviceId)
@@ -103,7 +109,6 @@ namespace actualForm
                     return true;
                 }
             }
-            connection.Close();
             return false;
         }
     }
