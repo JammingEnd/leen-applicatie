@@ -189,6 +189,7 @@ namespace actualForm
 
         private void listViewDevices_CLICK(object sender, EventArgs e)
         {
+            
             var item = listViewDevices.SelectedItems[0];
             //int itemId = int.Parse(item.SubItems[4].Text);
             Console.WriteLine(item.SubItems[2].Text);
@@ -197,10 +198,14 @@ namespace actualForm
             if (isLend)
             {
                 ReturnScreenPanel.Visible = true;
+
             } else
             {
                 EditScreenLendOutButton.Visible = !isLend;
                 EditScreenDevice.Visible = true;
+                EditScreenDeviceName.Text = item.SubItems[0].Text;
+                EditScreenDeviceType.Text = item.SubItems[1].Text;
+                EditScreenDeviceDescription.Text = item.SubItems[3].Text;
             }
         }
 
@@ -362,7 +367,7 @@ namespace actualForm
             LendingScreenPanel.Visible = false;
             ReturnScreenPanel.Visible = false;
             loadDevices();
-
+            
         }
 
         private void ErrorButton_Click(object sender, EventArgs e)
