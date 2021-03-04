@@ -148,7 +148,7 @@ namespace actualForm
                 {
                     continue;
                 }
-                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus, null, reader.GetString(0) }; // adding the item to the list. 
+                var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus, reader.GetString(3), reader.GetString(0) }; // adding the item to the list. 
                 var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
             }
@@ -160,7 +160,7 @@ namespace actualForm
             Regex regName = new Regex(patternName);
             string patternType = @"^[a-zA-Z0-9]{1,25}$";
             Regex regType = new Regex(patternType);
-            string patternDesc = @"^[a-zA-Z0-9!?#]{1,500}$";
+            string patternDesc = @"^[a-zA-Z0-9!?#\s]{1,500}$";
             Regex regDesc = new Regex(patternDesc);
             Console.WriteLine(regName.Match(name).Success);
             if (!regName.Match(name).Success)
