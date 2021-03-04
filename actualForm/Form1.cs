@@ -99,7 +99,6 @@ namespace actualForm
 
         private void handleError(string errorMessage)
         {
-            Console.WriteLine("Executing this");
             ErrorMessage.Text = errorMessage;
             ErrorPanel.BringToFront();
             ErrorPanel.Visible = true;
@@ -143,7 +142,6 @@ namespace actualForm
                     LvStatus = "uitleenbaar";
 
                 }
-                Console.WriteLine("test......" + reader.GetString(1) + " | " + textToFind);
                 if (!reader.GetString(1).StartsWith(textToFind) && custom)
                 {
                     continue;
@@ -162,7 +160,6 @@ namespace actualForm
             Regex regType = new Regex(patternType);
             string patternDesc = @"^[a-zA-Z0-9!?#\s]{1,500}$";
             Regex regDesc = new Regex(patternDesc);
-            Console.WriteLine(regName.Match(name).Success);
             if (!regName.Match(name).Success)
             {
                 handleError("A name may only include letters. And can have a length between 1 and 50 characters.");
@@ -192,9 +189,7 @@ namespace actualForm
             
             var item = listViewDevices.SelectedItems[0];
             //int itemId = int.Parse(item.SubItems[4].Text);
-            Console.WriteLine(item.SubItems[2].Text);
             bool isLend = item.SubItems[2].Text == "uitgeleent";
-            Console.WriteLine(isLend.ToString());
             if (isLend)
             {
                 ReturnScreenPanel.Visible = true;
@@ -294,6 +289,9 @@ namespace actualForm
             bool isLendOut = item.SubItems[2].Text == "uitgeleent";
             EditScreenLendOutButton.Visible = !isLendOut;
             EditScreenDevice.Visible = true;
+            EditScreenDeviceName.Text = item.SubItems[0].Text;
+            EditScreenDeviceType.Text = item.SubItems[1].Text;
+            EditScreenDeviceDescription.Text = item.SubItems[3].Text;
         }
 
         private void ReturnScreenCancelButton_Click(object sender, EventArgs e)
@@ -353,7 +351,6 @@ namespace actualForm
                 handleError(errMessage);
                 return;
             }
-            Console.WriteLine("im here.");
             int userId = User.add(LendingScreenFirstName.Text, LendingScreenLastName.Text, int.Parse(LendingScreenStudentNum.Text), LendingScreenClass.Text);
             if (userId == -1)
             {
@@ -382,18 +379,14 @@ namespace actualForm
             ListView listView = listViewDevices;
             if (itemSearhing == null || itemSearhing == "" || listView.Items.Count == 0)
             {
-                Console.WriteLine("This.");
                 loadDevices();
                 return;
             }
-            Console.WriteLine("Searching: " + itemSearhing);
             // listView.Items.Find(itemSearhing, true);
             listView.FindItemWithText(itemSearhing);
             ListViewItem searchQuery = listView.FindItemWithText(itemSearhing);
-            Console.WriteLine("test: " + searchQuery);
             if (searchQuery != null)
             {
-                Console.WriteLine(searchQuery.Text);
                 loadDevices(itemSearhing, true);
             }
         }

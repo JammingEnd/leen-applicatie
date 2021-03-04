@@ -29,9 +29,8 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.addDeviceButton = new System.Windows.Forms.Button();
             this.Devices = new System.Windows.Forms.Panel();
@@ -84,24 +83,12 @@ namespace actualForm
             // 
             // sideBarPanel
             // 
-            this.sideBarPanel.Controls.Add(this.DeleteButton);
             this.sideBarPanel.Controls.Add(this.searchBox);
             this.sideBarPanel.Controls.Add(this.addDeviceButton);
             this.sideBarPanel.Location = new System.Drawing.Point(0, -1);
             this.sideBarPanel.Name = "sideBarPanel";
             this.sideBarPanel.Size = new System.Drawing.Size(163, 366);
             this.sideBarPanel.TabIndex = 0;
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Location = new System.Drawing.Point(14, 310);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(125, 36);
-            this.DeleteButton.TabIndex = 2;
-            this.DeleteButton.Text = "Delete";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Visible = false;
             // 
             // searchBox
             // 
@@ -140,10 +127,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup1.Header = "ListViewGroup";
-            listViewGroup1.Name = "Name";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup2});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -561,7 +548,6 @@ namespace actualForm
         private System.Windows.Forms.ColumnHeader LvStatus;
         private System.Windows.Forms.ColumnHeader Remark;
         private System.Windows.Forms.ColumnHeader ColumId;
-        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Panel AddScreenPanel;
         private System.Windows.Forms.Button AddScreenSave;
         private System.Windows.Forms.Button AddScreenCancel;
