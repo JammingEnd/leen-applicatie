@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.addDeviceButton = new System.Windows.Forms.Button();
@@ -127,10 +127,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup2.Header = "ListViewGroup";
-            listViewGroup2.Name = "Name";
+            listViewGroup3.Header = "ListViewGroup";
+            listViewGroup3.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup2});
+            listViewGroup3});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";
@@ -204,7 +204,7 @@ namespace actualForm
             this.AddScreenDescription.Name = "AddScreenDescription";
             this.AddScreenDescription.Size = new System.Drawing.Size(371, 115);
             this.AddScreenDescription.TabIndex = 2;
-            this.AddScreenDescription.Text = "";
+            this.AddScreenDescription.Text = "Beschrijving";
             // 
             // AddScreenType
             // 
@@ -213,6 +213,7 @@ namespace actualForm
             this.AddScreenType.Name = "AddScreenType";
             this.AddScreenType.Size = new System.Drawing.Size(154, 54);
             this.AddScreenType.TabIndex = 1;
+            this.AddScreenType.Text = "Type";
             // 
             // AddScreenName
             // 
@@ -221,6 +222,7 @@ namespace actualForm
             this.AddScreenName.Name = "AddScreenName";
             this.AddScreenName.Size = new System.Drawing.Size(154, 54);
             this.AddScreenName.TabIndex = 0;
+            this.AddScreenName.Text = "Naam";
             // 
             // EditScreenDevice
             // 
