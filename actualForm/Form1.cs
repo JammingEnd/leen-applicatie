@@ -345,8 +345,21 @@ namespace actualForm
                 handleError(errMessage);
                 return;
             }
+            Console.WriteLine("im here.");
+            int userId = User.add(LendingScreenFirstName.Text, LendingScreenLastName.Text, int.Parse(LendingScreenStudentNum.Text), LendingScreenClass.Text);
+            if (userId == -1)
+            {
+                handleError("Something went wrong, try again later!");
+                return;
+            }
+            var item = listViewDevices.SelectedItems[0];
 
-            //TODO saving.
+            int id = int.Parse(item.SubItems[4].Text);
+            Lendings.add(id, userId);
+            LendingScreenPanel.Visible = false;
+            ReturnScreenPanel.Visible = false;
+            loadDevices();
+
         }
 
         private void ErrorButton_Click(object sender, EventArgs e)

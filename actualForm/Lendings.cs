@@ -105,7 +105,6 @@ namespace actualForm
             {
                 if (reader.GetBoolean(4))
                 {
-                    connection.Close();
                     return true;
                 }
             }

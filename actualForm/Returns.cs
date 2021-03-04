@@ -48,7 +48,6 @@ namespace actualForm
                 $"VALUES " +
                 $"(\"{deviceId}\", \"{userId}\", \"{lendingId}\"{(description != null ? $", \"{description}\"" : "")});"
                 );
-            connection.Close();
         }
 
         public static void delete(int id)
@@ -57,7 +56,6 @@ namespace actualForm
                 GetConnection(),
                 $"DELETE FROM returns WHERE ID = \"{id}\";"
                 );
-            connection.Close();
         }
 
         public static void updateAll(int id, int deviceId, int userId, int lendingId, string description = null)
@@ -71,7 +69,6 @@ namespace actualForm
                 $"{(description != null ? $", description = \"{description}\"" : "")} " +
                 $"WHERE ID = \"{id}\";"
                 );
-            connection.Close();
         }
 
         public static void updateDeviceId(int id, int deviceId)
@@ -80,7 +77,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE returns SET deviceId = \"{deviceId}\" WHERE ID = \"{id}\";"
                 );
-            connection.Close();
         }
 
         public static void updateUserId(int id, int userId)
@@ -89,7 +85,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE returns SET userId = \"{userId}\" WHERE ID = \"{id}\";"
                 );
-            connection.Close();
         }
 
         public static void updateLendingId(int id, int lendingId)
@@ -98,7 +93,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE returns SET lendingId = \"{lendingId}\" WHERE ID = \"{id}\";"
                 );
-            connection.Close();
         }
 
         public static void updateDescription(int id, string description)
@@ -107,7 +101,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE returns SET description = \"{description}\" WHERE ID = \"{id}\";"
                 );
-            connection.Close();
         }
     }
 }
