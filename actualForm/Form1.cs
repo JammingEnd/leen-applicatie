@@ -106,12 +106,16 @@ namespace actualForm
 
         private void AddDevice(object sender, EventArgs e)
         {
-            /*if (
+            if (
                 AddScreenPanel.Visible ||
                 LendingScreenPanel.Visible ||
                 ReturnScreenPanel.Visible ||
-                EditScreenDevice.Visible
-                )*/
+                EditScreenDevice.Visible ||
+                ErrorPanel.Visible
+                )
+            {
+                return;
+            }
             AddScreenPanel.Visible = true;
 
         }
