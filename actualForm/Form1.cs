@@ -143,7 +143,11 @@ namespace actualForm
                     LvStatus = "uitleenbaar";
 
                 }
-
+                Console.WriteLine("test......" + reader.GetString(1) + " | " + textToFind);
+                if (!reader.GetString(1).StartsWith(textToFind) && custom)
+                {
+                    continue;
+                }
                 var row = new string[] { reader.GetString(1), reader.GetString(2), LvStatus, null, reader.GetString(0) }; // adding the item to the list. 
                 var lvi = new ListViewItem(row);
                 listViewDevices.Items.Add(lvi);
@@ -371,13 +375,22 @@ namespace actualForm
         {
             string itemSearhing = searchBox.Text;
             ListView listView = listViewDevices;
-           // listView.Items.Find(itemSearhing, true);
+            if (itemSearhing == null || itemSearhing == "" || listView.Items.Count == 0)
+            {
+                Console.WriteLine("This.");
+                loadDevices();
+                return;
+            }
+            Console.WriteLine("Searching: " + itemSearhing);
+            // listView.Items.Find(itemSearhing, true);
             listView.FindItemWithText(itemSearhing);
-            
-        }
-
-        private void searchBox_Enter(object sender, EventArgs e)
-        {
+            ListViewItem searchQuery = listView.FindItemWithText(itemSearhing);
+            Console.WriteLine("test: " + searchQuery);
+            if (searchQuery != null)
+            {
+                Console.WriteLine(searchQuery.Text);
+                loadDevices(itemSearhing, true);
+            }
         }
     }
 }

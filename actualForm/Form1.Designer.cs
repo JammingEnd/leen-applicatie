@@ -112,7 +112,6 @@ namespace actualForm
             this.searchBox.TabIndex = 1;
             this.searchBox.Text = "Search";
             this.searchBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.searchBox.Enter += new System.EventHandler(this.searchBox_Enter);
             // 
             // addDeviceButton
             // 
