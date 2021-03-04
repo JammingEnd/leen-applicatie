@@ -29,7 +29,7 @@ namespace actualForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup5 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             this.sideBarPanel = new System.Windows.Forms.Panel();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
@@ -119,7 +119,7 @@ namespace actualForm
             this.addDeviceButton.Name = "addDeviceButton";
             this.addDeviceButton.Size = new System.Drawing.Size(126, 50);
             this.addDeviceButton.TabIndex = 0;
-            this.addDeviceButton.Text = "button1";
+            this.addDeviceButton.Text = "Add Device";
             this.addDeviceButton.UseVisualStyleBackColor = true;
             this.addDeviceButton.Click += new System.EventHandler(this.AddDevice);
             // 
@@ -140,10 +140,10 @@ namespace actualForm
             this.Remark,
             this.ColumId});
             this.listViewDevices.GridLines = true;
-            listViewGroup4.Header = "ListViewGroup";
-            listViewGroup4.Name = "Name";
+            listViewGroup5.Header = "ListViewGroup";
+            listViewGroup5.Name = "Name";
             this.listViewDevices.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup4});
+            listViewGroup5});
             this.listViewDevices.HideSelection = false;
             this.listViewDevices.Location = new System.Drawing.Point(0, 0);
             this.listViewDevices.Name = "listViewDevices";

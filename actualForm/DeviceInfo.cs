@@ -21,7 +21,6 @@ namespace actualForm
                 GetConnection(),
                 $"INSERT INTO device_info (name, type, description) VALUES (\"{name}\",\"{type}\",\"{description}\");"
                 );
-            connection.Close();
         }
 
         public static void update(int id, string name, string type, string description)
@@ -38,7 +37,6 @@ namespace actualForm
                 GetConnection(),
                 $"UPDATE device_info SET isDeleted = true WHERE deviceId = \"{id}\";"
                 );
-            connection.Close();
         }
 
         public static MySqlDataReader readAll()
