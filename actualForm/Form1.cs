@@ -117,7 +117,7 @@ namespace actualForm
 
         }
 
-        private void loadDevices()
+        private void loadDevices(string textToFind = "", bool custom = false)
         {
             listViewDevices.Items.Clear();
             MySqlDataReader reader = DeviceInfo.readAll();
@@ -130,7 +130,6 @@ namespace actualForm
             {
                 Boolean checker = Lendings.isActive(reader.GetInt16(0));
                 //Boolean isActive = Lendings.isActive(reader.GetInt16(0));
-
 
                 //lvi.Tag = Devices;
                 string LvStatus = string.Empty;
@@ -373,6 +372,10 @@ namespace actualForm
             string itemSearhing = searchBox.Text;
             ListView listView = listViewDevices;
             listView.Items.Find(itemSearhing, true);
+        }
+
+        private void searchBox_Enter(object sender, EventArgs e)
+        {
         }
     }
 }
