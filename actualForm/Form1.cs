@@ -359,7 +359,9 @@ namespace actualForm
         {
             string itemSearhing = searchBox.Text;
             ListView listView = listViewDevices;
-            listView.Items.Find(itemSearhing, true);
+           // listView.Items.Find(itemSearhing, true);
+            listView.FindItemWithText(itemSearhing);
+            
         }
     }
 }
